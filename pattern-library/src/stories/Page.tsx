@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Header } from './Header';
 import './page.css';
+import ComponentHeader from "../components/header"
 
 type User = {
   name: string;
@@ -18,6 +19,8 @@ export const Page: React.VFC = () => {
         onLogout={() => setUser(undefined)}
         onCreateAccount={() => setUser({ name: 'Jane Doe' })}
       />
+
+      <ComponentHeader />
 
       <section>
         <h2>Pages in Storybook</h2>
