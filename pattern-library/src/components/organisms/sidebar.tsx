@@ -58,7 +58,7 @@ function SidebarLink({ id, active, text, Icon, ActiveIcon, onClick }: SidebarLin
 
 function Sidebar({onLogoClick,onHomeClick,onExploreClick,onNotificationsClick,onMessagesClick,onBookmarksClick,onListsClick,onProfileClick,onMoreClick,onTweetClick}: SidebarProps) {
   return (
-    <div className="hidden sm:flex flex-col w-16 xl:w-[275px] justify-between items-center xl:items-start min-h-screen">
+    <div className="hidden sm:flex flex-col w-16 xl:w-56 justify-between items-center xl:items-start min-h-screen overflow-x-hidden overflow-y-scroll">
       <div className="w-full">
         <div className="flex justify-center xl:justify-start mb-1">
           <a
