@@ -6,7 +6,7 @@ export default {
   title: 'Components/Separator',
   component: Separator,
   parameters: {
-    layout: 'fullscreen',
+    // layout: 'fullscreen',
   },
 } as ComponentMeta<typeof Separator>;
 

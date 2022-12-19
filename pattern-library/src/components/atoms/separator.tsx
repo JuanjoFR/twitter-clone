@@ -1,8 +1,10 @@
-interface Props {}
+interface Props {
+  className?: React.HTMLAttributes<HTMLHRElement>["className"]
+}
 
-function Separator(props: Props) {
+function Separator({ className }: Props) {
   return (
-    <hr className="my-8 h-px bg-gray-800 border-0 dark:bg-gray-700" />
+    <hr className={`my-8 h-px bg-[#EFF3F4] border-0 ${className}`} />
   );
 }
 

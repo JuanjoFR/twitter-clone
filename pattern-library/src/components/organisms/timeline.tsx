@@ -1,12 +1,38 @@
 import React from "react";
+import Separator from "../atoms/separator";
+import { Tweet as ITweet } from "../types"
+import Tweet from './tweet';
 
-interface Props {}
+interface Props {
+  data: ITweet[]
+  onUserClick?: (id: string, event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
+  onTweetClick?: (id: string, event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
+  onMoreClick?: (id: string, event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
+  onAnswersClick?: (id: string, event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
+  onRetweetsClick?: (id: string, event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
+  onLikesClick?: (id: string, event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
+  onShareClick?: (id: string, event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
+}
 
-function Timeline(props: Props) {
+function Timeline({ data, onUserClick, onTweetClick, onMoreClick, onAnswersClick, onRetweetsClick, onLikesClick, onShareClick }: Props) {
   return (
     <React.Fragment>
-      <p className="text-2xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas id facilisis ligula. Proin feugiat felis a luctus fringilla. Maecenas mi tortor, molestie sit amet cursus at, consequat a mauris. Duis nisl justo, dapibus sit amet lacus sit amet, pharetra mollis eros. Fusce cursus nunc ligula, eu tristique ipsum dapibus vel. Duis ex diam, laoreet eget pharetra in, semper sed nulla. Phasellus id velit vitae ante tempus vestibulum. Nam dignissim tortor leo, vel fermentum nibh rutrum at. Vestibulum efficitur ipsum nec ligula malesuada commodo. Aenean mattis rhoncus neque vel tristique. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ipsum dui, efficitur a fermentum sit amet, fermentum ac nulla. Nam condimentum libero et leo scelerisque aliquam. Aenean euismod quis elit ut posuere.</p>
-      <p className="text-2xl">Nunc non eleifend dui. Aliquam maximus sapien purus. Nullam rhoncus id lectus eget hendrerit. Quisque aliquet metus at arcu iaculis maximus. Praesent semper ultricies sagittis. Sed sed sagittis risus. Sed sit amet placerat ex. Maecenas scelerisque dictum neque quis fermentum.</p>
+      {data.map(item => (
+        <React.Fragment>
+          <Tweet
+            key={item.id}
+            data={item}
+            onUserClick={event => onUserClick ? onUserClick(item.id, event) : null}
+            onTweetClick={event => onTweetClick ? onTweetClick(item.id, event) : null}
+            onMoreClick={event => onMoreClick ? onMoreClick(item.id, event) : null}
+            onAnswersClick={event => onAnswersClick ? onAnswersClick(item.id, event) : null}
+            onRetweetsClick={event => onRetweetsClick ? onRetweetsClick(item.id, event) : null}
+            onLikesClick={event => onLikesClick ? onLikesClick(item.id, event) : null}
+            onShareClick={event => onShareClick ? onShareClick(item.id, event) : null}
+          />
+          <Separator />
+        </React.Fragment>
+      ))}
     </React.Fragment>
   );
 }
