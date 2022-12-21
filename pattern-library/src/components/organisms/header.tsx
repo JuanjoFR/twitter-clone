@@ -18,7 +18,7 @@ function Header({ title, onProfileClick, onTitleClick, onSettingsClick }: Props)
         <img
           className="w-8 h-8 rounded-full"
           alt="Profile"
-          src="https://xsgames.co/randomusers/avatar.php?g=pixel"
+          src="https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/417.jpg"
         />
       </a>
       <a

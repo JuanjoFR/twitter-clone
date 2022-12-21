@@ -23,7 +23,7 @@ function TweetForm({ onProfileClick, onAttachImageClick, onAttachGifClick, onCre
           <img
             className="w-[48px] h-[48px] rounded-full"
             alt="Profile"
-            src="https://xsgames.co/randomusers/avatar.php?g=pixel"
+            src="https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/417.jpg"
           />
         </a>
       </div>

@@ -32,23 +32,25 @@ export const Default = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Default.args = {
   data: {
-    id: "1",
+    id: "f75f0f03-4066-4a04-a42f-a25fbc48616f",
     user: {
-      fullName: "Full Name",
-      nickName: "@nickName",
-      image: "https://xsgames.co/randomusers/avatar.php?g=pixel"
+      fullName: "Miranda O'Conner",
+      nickName: "@Marshall87",
+      image: "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/860.jpg"
     },
     body: (
       <React.Fragment>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        <p>Suspendisse placerat, turpis eget interdum venenatis, odio libero rhoncus augue, eu auctor metus risus nec eros.</p>
+        <p>Ullam modi nobis repellendus laborum aliquam corporis.</p>
+        <p>Eveniet nisi excepturi voluptatem.</p>
+        <p>Accusantium inventore facilis nobis totam rerum unde consequuntur vero magnam.</p>
+        <p>Ducimus cupiditate cum delectus odio commodi aliquam.</p>
       </React.Fragment>
     ),
     meta: {
-      time: "10h",
-      answers: "10",
-      retweets: "240",
-      likes: "1.324",
+      time: "3h",
+      answers: "12",
+      retweets: "241",
+      likes: "675"
     }
   },
   onUserClick: createActionHandler<HTMLAnchorElement>("onUserClick"),

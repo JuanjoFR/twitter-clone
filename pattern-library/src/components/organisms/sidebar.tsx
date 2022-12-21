@@ -118,7 +118,7 @@ function Sidebar({onLogoClick,onHomeClick,onExploreClick,onNotificationsClick,on
             <img
               className="w-[40px] h-[40px] rounded-full xl:mr-2"
               alt="Profile"
-              src="https://xsgames.co/randomusers/avatar.php?g=pixel"
+              src="https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/417.jpg"
             />
             <div className="hidden xl:flex flex-col flex-1 mr-2">
               <p className="text-[#0F1419]">John Doe</p>
