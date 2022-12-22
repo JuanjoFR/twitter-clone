@@ -22,3 +22,12 @@ export function generateTweet() {
     }
   };
 }
+
+export function generateHotTopic() {
+  return {
+    id: faker.datatype.uuid(),
+    country: faker.address.country(),
+    body: faker.random.words(),
+    tweets: `${faker.datatype.number({ min: 1, max: 999 })}K`
+  };
+}

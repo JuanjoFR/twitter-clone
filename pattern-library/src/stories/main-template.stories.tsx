@@ -8,6 +8,7 @@ import TweetForm from '../components/organisms/tweet-form';
 import Separator from '../components/atoms/separator';
 import Timeline from '../components/organisms/timeline';
 import SearchForm from '../components/organisms/search-form';
+import HotTopics from '../components/organisms/hot-topics';
 
 export default {
   title: 'Components/Main Template',
@@ -38,6 +39,28 @@ function createSearchFormActionHandler() {
   return (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     action("onSubmit")(event)
+  }
+}
+
+function createHotTopicTopicActionHandler() {
+  return (id: string, event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    event.preventDefault();
+    action(`onTopicClick/${id}`)(event)
+  }
+}
+
+function createHotTopicTopicMoreActionHandler() {
+  return (id: string, event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    event.preventDefault();
+    event.stopPropagation();
+    action(`onTopicTopicMoreClick/${id}`)(event)
+  }
+}
+
+function createHotTopicMoreActionHandler() {
+  return (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    event.preventDefault();
+    action("onTopicMoreClick")(event)
   }
 }
 
@@ -232,6 +255,38 @@ Default.args = {
   widgets: (
     <div className="flex flex-col flex-1">
       <SearchForm className="mt-2 mb-4" onSubmit={createSearchFormActionHandler()} />
+      <HotTopics
+        data={[
+          {
+            id: "33c2a660-1755-4a07-b6e9-202b0b5e545a",
+            country: "Spain",
+            body: "Pink customized despite",
+            tweets: "530K"
+          }, {
+            id: "640c9d34-091c-41f9-b030-05491bf351e8",
+            country: "Spain",
+            body: "Southwest Jeep",
+            tweets: "814K"
+          }, {
+            id: "53fd0096-42d2-4040-8db3-3222bcba3613",
+            country: "Spain",
+            body: "British Indian Ocean Territory"
+          }, {
+            id: "8ad5f620-fffb-4b0c-9241-1eb58fdf7bdd",
+            country: "Spain",
+            body: "Wherever greedy",
+            tweets: "2.342"
+          }, {
+            id: "f9afccd0-3e26-465b-b703-ceaf36f3366b",
+            country: "Spain",
+            body: "Ethiopian orchid",
+            tweets: "6.300"
+          }
+        ]}
+        onTopicClick={createHotTopicTopicActionHandler()}
+        onTopicMoreClick={createHotTopicTopicMoreActionHandler()}
+        onShowMoreClick={createHotTopicMoreActionHandler()}
+      />
     </div>
   )
 };

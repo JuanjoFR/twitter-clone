@@ -1,14 +1,14 @@
 interface User {
-  fullName: String
-  nickName: String
+  fullName: string
+  nickName: string
   image: string
 }
 
 interface TweetMeta {
-  time: String
-  answers: String
-  retweets: String
-  likes: String
+  time: string
+  answers: string
+  retweets: string
+  likes: string
 }
 
 export interface Tweet {
@@ -16,4 +16,11 @@ export interface Tweet {
   user: User
   body: React.ReactNode;
   meta: TweetMeta
+}
+
+export interface Topic {
+  id: string
+  country: string
+  body: string;
+  tweets?: string
 }
