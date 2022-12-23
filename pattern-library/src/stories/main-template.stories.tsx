@@ -9,6 +9,7 @@ import Separator from '../components/atoms/separator';
 import Timeline from '../components/organisms/timeline';
 import SearchForm from '../components/organisms/search-form';
 import HotTopics from '../components/organisms/hot-topics';
+import Footer from '../components/organisms/footer';
 
 export default {
   title: 'Components/Main Template',
@@ -61,6 +62,13 @@ function createHotTopicMoreActionHandler() {
   return (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     event.preventDefault();
     action("onTopicMoreClick")(event)
+  }
+}
+
+function createFooterActionHandler(key: "onTosClick" | "onPrivacyClick" | "onCookieClick" | "onAccesibilityClick" | "onAdsClick" | "onMoreClick") {
+  return (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    event.preventDefault();
+    action(key)(event)
   }
 }
 
@@ -286,6 +294,15 @@ Default.args = {
         onTopicClick={createHotTopicTopicActionHandler()}
         onTopicMoreClick={createHotTopicTopicMoreActionHandler()}
         onShowMoreClick={createHotTopicMoreActionHandler()}
+      />
+      <Footer
+        className="mx-4 mt-4"
+        onTosClick={createFooterActionHandler("onTosClick")}
+        onPrivacyClick={createFooterActionHandler("onPrivacyClick")}
+        onCookieClick={createFooterActionHandler("onCookieClick")}
+        onAccesibilityClick={createFooterActionHandler("onAccesibilityClick")}
+        onAdsClick={createFooterActionHandler("onAdsClick")}
+        onMoreClick={createFooterActionHandler("onMoreClick")}
       />
     </div>
   )
