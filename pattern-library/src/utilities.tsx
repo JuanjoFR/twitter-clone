@@ -1,14 +1,19 @@
 import { faker } from '@faker-js/faker';
 import React from 'react';
 
+export function generateUser() {
+  return {
+    id: faker.datatype.uuid(),
+    fullName: faker.name.fullName(),
+    nickName: `@${faker.internet.userName()}`,
+    image: faker.internet.avatar()
+  }
+}
+
 export function generateTweet() {
   return {
     id: faker.datatype.uuid(),
-    user: {
-      fullName: faker.name.fullName(),
-      nickName: `@${faker.internet.userName()}`,
-      image: faker.internet.avatar()
-    },
+    user: generateUser(),
     body: (
       <React.Fragment>
         {faker.lorem.lines().split("\n").map(paragraph => <p>{paragraph}</p>)}

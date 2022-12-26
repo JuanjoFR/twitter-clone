@@ -1,4 +1,5 @@
-interface User {
+export interface User {
+  id: string
   fullName: string
   nickName: string
   image: string

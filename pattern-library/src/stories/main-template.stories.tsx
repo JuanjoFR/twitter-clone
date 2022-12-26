@@ -10,6 +10,7 @@ import Timeline from '../components/organisms/timeline';
 import SearchForm from '../components/organisms/search-form';
 import HotTopics from '../components/organisms/hot-topics';
 import Footer from '../components/organisms/footer';
+import UsersRecommendations from '../components/organisms/users-recommendations';
 
 export default {
   title: 'Components/Main Template',
@@ -65,6 +66,28 @@ function createHotTopicMoreActionHandler() {
   }
 }
 
+function createUsersRecommendationsUserActionHandler() {
+  return (id: string, event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    event.preventDefault();
+    action(`onUsersRecommendationsUserClick/${id}`)(event)
+  }
+}
+
+function createUsersRecommendationsFollowActionHandler() {
+  return (id: string, event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    event.preventDefault();
+    event.stopPropagation();
+    action(`onUsersRecommendationsFollowClick/${id}`)(event)
+  }
+}
+
+function createUsersRecommendationsMoreActionHandler() {
+  return (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    event.preventDefault();
+    action("onUsersRecommendationsMoreClick")(event)
+  }
+}
+
 function createFooterActionHandler(key: "onTosClick" | "onPrivacyClick" | "onCookieClick" | "onAccesibilityClick" | "onAdsClick" | "onMoreClick") {
   return (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     event.preventDefault();
@@ -91,6 +114,7 @@ Default.args = {
             {
               id: "7acfdc1c-9386-436e-8003-4eb6ca624088",
               user: {
+                id: "7acfdc1c-9386-436e-8003-4eb6ca624088",
                 fullName: "Salvador Dooley",
                 nickName: "@Peggie_Fisher80",
                 image: "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/398.jpg"
@@ -110,6 +134,7 @@ Default.args = {
             }, {
               id: "612d9bf3-02d6-4d41-b4a8-e46354032918",
               user: {
+                id: "612d9bf3-02d6-4d41-b4a8-e46354032918",
                 fullName: "Cedric Walsh",
                 nickName: "@Megane-Bosco",
                 image: "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/376.jpg"
@@ -131,6 +156,7 @@ Default.args = {
             }, {
               id: "0ce8bdb9-7d31-4179-8dac-acbb27e61ec3",
               user: {
+                id: "0ce8bdb9-7d31-4179-8dac-acbb27e61ec3",
                 fullName: "Mr. Rachel Green",
                 nickName: "@Dawson51",
                 image: "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/256.jpg"
@@ -151,6 +177,7 @@ Default.args = {
             }, {
               id: "4bc6df7d-406e-4c3b-8041-9b4f7082d551",
               user: {
+                id: "4bc6df7d-406e-4c3b-8041-9b4f7082d551",
                 fullName: "Miss Nelson Mertz",
                 nickName: "@June_Schumm8",
                 image: "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/48.jpg"
@@ -169,6 +196,7 @@ Default.args = {
             }, {
               id: "1990d649-5efe-4c5c-8e52-ca861e1b942d",
               user: {
+                id: "1990d649-5efe-4c5c-8e52-ca861e1b942d",
                 fullName: "Tony Bashirian",
                 nickName: "@Asa_Sauer45",
                 image: "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1193.jpg"
@@ -190,6 +218,7 @@ Default.args = {
             }, {
               id: "34eeb1b0-a30e-4670-8250-f1abe0bd6fa4",
               user: {
+                id: "34eeb1b0-a30e-4670-8250-f1abe0bd6fa4",
                 fullName: "Dr. Maurice Maggio",
                 nickName: "@Jennings_Braun99",
                 image: "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1176.jpg"
@@ -211,6 +240,7 @@ Default.args = {
             }, {
               id: "90402a92-9fa9-4746-904c-6cf0c5507d36",
               user: {
+                id: "90402a92-9fa9-4746-904c-6cf0c5507d36",
                 fullName: "Lillian Jerde PhD",
                 nickName: "@Olen18",
                 image: "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/218.jpg"
@@ -231,6 +261,7 @@ Default.args = {
             }, {
               id: "0442b58c-6159-405e-8f88-67d168e58f61",
               user: {
+                id: "0442b58c-6159-405e-8f88-67d168e58f61",
                 fullName: "Candace Ritchie",
                 nickName: "@Dorothea_Balistreri",
                 image: "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/122.jpg"
@@ -295,8 +326,31 @@ Default.args = {
         onTopicMoreClick={createHotTopicTopicMoreActionHandler()}
         onShowMoreClick={createHotTopicMoreActionHandler()}
       />
+      <UsersRecommendations
+        data={[
+          {
+            id: "57f341b7-a7b8-4dcf-bae2-73eb30daecc1",
+            fullName: "Colin Leannon",
+            nickName: "@Van_Kris",
+            image: "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/167.jpg"
+          }, {
+            id: "17b124fd-c07a-4af6-8412-8194fe011264",
+            fullName: "Beth Klocko",
+            nickName: "@Sadye.Gorczany",
+            image: "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/310.jpg"
+          }, {
+            id: "bcb770a9-08b2-4260-915b-001e4c5d43ae",
+            fullName: "Marvin Koepp V",
+            nickName: "@Hans85",
+            image: "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1060.jpg"
+          }
+        ]}
+        onUserClick={createUsersRecommendationsUserActionHandler()}
+        onFollowClick={createUsersRecommendationsFollowActionHandler()}
+        onShowMoreClick={createUsersRecommendationsMoreActionHandler()}
+      />
       <Footer
-        className="mx-4 mt-4"
+        className="mx-4"
         onTosClick={createFooterActionHandler("onTosClick")}
         onPrivacyClick={createFooterActionHandler("onPrivacyClick")}
         onCookieClick={createFooterActionHandler("onCookieClick")}

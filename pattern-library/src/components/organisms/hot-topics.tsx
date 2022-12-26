@@ -10,7 +10,7 @@ interface Props {
 
 function HotTopics({ data, onTopicClick, onTopicMoreClick, onShowMoreClick }: Props) {
   return (
-    <div className="flex flex-col text-[#0F1419]">
+    <div className="flex flex-col text-[#0F1419] mb-4">
       <h4
         className="bg-[#F7F9F9] pt-3 rounded-t-2xl text-xl font-bold px-4 pb-1"
       >What's happening</h4>
