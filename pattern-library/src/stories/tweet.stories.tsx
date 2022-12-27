@@ -1,7 +1,7 @@
 // import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import Tweet from '../components/organisms/tweet';
+import Tweet from '../components/molecules/tweet';
 import React from 'react';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
@@ -34,6 +34,7 @@ Default.args = {
   data: {
     id: "f75f0f03-4066-4a04-a42f-a25fbc48616f",
     user: {
+      id: "f75f0f03-4066-4a04-a42f-a25fbc48616f",
       fullName: "Miranda O'Conner",
       nickName: "@Marshall87",
       image: "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/860.jpg"

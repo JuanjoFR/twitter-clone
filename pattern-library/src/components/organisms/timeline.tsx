@@ -1,7 +1,7 @@
 import React from "react";
 import Separator from "../atoms/separator";
 import { Tweet as ITweet } from "../types"
-import Tweet from './tweet';
+import Tweet from '../molecules/tweet';
 
 interface Props {
   data: ITweet[]
