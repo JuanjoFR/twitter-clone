@@ -31,28 +31,25 @@ function createActionHandler<T>(key: "onUserClick" | "onTweetClick" | "onMoreCli
 export const Default = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Default.args = {
-  data: {
+  user: {
     id: "f75f0f03-4066-4a04-a42f-a25fbc48616f",
-    user: {
-      id: "f75f0f03-4066-4a04-a42f-a25fbc48616f",
-      fullName: "Miranda O'Conner",
-      nickName: "@Marshall87",
-      image: "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/860.jpg"
-    },
-    body: (
-      <React.Fragment>
-        <p>Ullam modi nobis repellendus laborum aliquam corporis.</p>
-        <p>Eveniet nisi excepturi voluptatem.</p>
-        <p>Accusantium inventore facilis nobis totam rerum unde consequuntur vero magnam.</p>
-        <p>Ducimus cupiditate cum delectus odio commodi aliquam.</p>
-      </React.Fragment>
-    ),
-    meta: {
-      time: "3h",
-      answers: "12",
-      retweets: "241",
-      likes: "675"
-    }
+    fullName: "Miranda O'Conner",
+    nickName: "@Marshall87",
+    image: "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/860.jpg"
+  },
+  body: (
+    <React.Fragment>
+      <p>Ullam modi nobis repellendus laborum aliquam corporis.</p>
+      <p>Eveniet nisi excepturi voluptatem.</p>
+      <p>Accusantium inventore facilis nobis totam rerum unde consequuntur vero magnam.</p>
+      <p>Ducimus cupiditate cum delectus odio commodi aliquam.</p>
+    </React.Fragment>
+  ),
+  meta: {
+    time: "3h",
+    answers: "12",
+    retweets: "241",
+    likes: "675"
   },
   onUserClick: createActionHandler<HTMLAnchorElement>("onUserClick"),
   onTweetClick: createActionHandler<HTMLAnchorElement>("onTweetClick"),

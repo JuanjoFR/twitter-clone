@@ -21,7 +21,7 @@ function Timeline({ data, onUserClick, onTweetClick, onMoreClick, onAnswersClick
         <React.Fragment>
           <Tweet
             key={item.id}
-            data={item}
+            {...item}
             onUserClick={event => onUserClick ? onUserClick(item.id, event) : null}
             onTweetClick={event => onTweetClick ? onTweetClick(item.id, event) : null}
             onMoreClick={event => onMoreClick ? onMoreClick(item.id, event) : null}
