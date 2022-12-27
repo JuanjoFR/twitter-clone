@@ -1,14 +1,20 @@
 interface Props {
-  sidebar: React.ReactElement;
-  content: React.ReactElement;
-  widgets: React.ReactElement;
-  title: String
-  onProfileClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
-  onTitleClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
-  onSettingsClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
+  sidebar: React.ReactElement
+  content: React.ReactElement
+  widgets: React.ReactElement
+  title: string
+  onProfileClick?: (
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+  ) => void
+  onTitleClick?: (
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+  ) => void
+  onSettingsClick?: (
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+  ) => void
 }
 
-function Main({ sidebar, content, widgets, title, onProfileClick, onTitleClick, onSettingsClick }: Props) {
+function Main({ sidebar, content, widgets }: Props) {
   return (
     <div className="min-h-screen">
       <div className="flex mx-auto max-w-7xl">

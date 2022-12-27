@@ -18,6 +18,6 @@
 // // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 // reportWebVitals();
 
-import Header from './components/header';
+import Header from "./components/organisms/header"
 
 export { Header }

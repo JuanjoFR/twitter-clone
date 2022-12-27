@@ -1,13 +1,25 @@
-import { User } from '../types';
+import { User } from "../types"
 
 interface Props extends Omit<User, "id"> {
-  onUserClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
-  onFollowClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  onUserClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void
+  onFollowClick?: (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => void
 }
 
-function UserRecommendationItem({ fullName, nickName, image, onUserClick, onFollowClick }: Props) {
+function UserRecommendationItem({
+  fullName,
+  nickName,
+  image,
+  onUserClick,
+  onFollowClick
+}: Props) {
   return (
-    <a href="#user" className="flex justify-between px-4 py-3 bg-[#F7F9F9] hover:bg-black hover:bg-opacity-[0.07]" onClick={onUserClick}>
+    <a
+      href="#user"
+      className="flex justify-between px-4 py-3 bg-[#F7F9F9] hover:bg-black hover:bg-opacity-[0.07]"
+      onClick={onUserClick}
+    >
       <div className="flex flex-shrink-0 items-center justify-center mr-4">
         <img className="w-12 h-12 rounded-md" src={image} alt="User" />
       </div>
@@ -24,7 +36,7 @@ function UserRecommendationItem({ fullName, nickName, image, onUserClick, onFoll
         </button>
       </div>
     </a>
-  );
+  )
 }
 
 export default UserRecommendationItem

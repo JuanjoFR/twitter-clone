@@ -15,13 +15,13 @@ interface TweetMeta {
 export interface Tweet {
   id: string
   user: User
-  body: React.ReactNode;
+  body: React.ReactNode
   meta: TweetMeta
 }
 
 export interface Topic {
   id: string
   country: string
-  body: string;
+  body: string
   tweets?: string
 }
