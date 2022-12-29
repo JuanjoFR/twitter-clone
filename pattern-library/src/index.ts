@@ -20,4 +20,5 @@
 
 import Header from "./components/organisms/header"
 
+export { Button, Separator } from "./components/atoms"
 export { Header }

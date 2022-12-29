@@ -26,6 +26,7 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
+    "prepare": "npm run build",
     "build": "rm -rf dist && npm run build:cjs && npm run build:tailwind",
     "build:cjs": "tsc --module CommonJS --outDir dist/cjs",
     "build:tailwind": "npx tailwindcss -o dist/build.css"

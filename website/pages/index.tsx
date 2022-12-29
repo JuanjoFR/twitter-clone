@@ -1,7 +1,7 @@
 import Head from "next/head"
 import Image from "next/image"
 import styles from "../styles/Home.module.css"
-import { Header } from "pattern-library"
+import { Header, Button, Separator } from "pattern-library"
 
 function Home() {
   return (
@@ -14,6 +14,8 @@ function Home() {
 
       <Header title="Hello world" />
       <main className={styles.main}>
+        <Button label="My Label" />
+        <Separator />
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
