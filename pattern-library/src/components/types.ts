@@ -3,6 +3,7 @@ export interface User {
   fullName: string
   nickName: string
   image: string
+  url: string
 }
 
 interface TweetMeta {
@@ -17,6 +18,7 @@ export interface Tweet {
   user: User
   body: React.ReactNode
   meta: TweetMeta
+  url: string
 }
 
 export interface Topic {

@@ -20,13 +20,22 @@ export default {
   }
 } as ComponentMeta<typeof MainTemplate>
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof MainTemplate> = (args) => (
   <MainTemplate {...args} />
 )
 
-function createActionHandler(
-  key: "onProfileClick" | "onTitleClick" | "onSettingsClick"
+function createSidebarActionHandler(
+  key:
+    | "onLogoClick"
+    | "onHomeClick"
+    | "onExploreClick"
+    | "onNotificationsClick"
+    | "onMessagesClick"
+    | "onBookmarksClick"
+    | "onListsClick"
+    | "onProfileClick"
+    | "onMoreClick"
+    | "onTweetClick"
 ) {
   return (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     event.preventDefault()
@@ -34,9 +43,36 @@ function createActionHandler(
   }
 }
 
-function createTimelineActionHandler(
+function createHeaderActionHandler<T>(
+  key: "onProfileClick" | "onTitleClick" | "onSettingsClick"
+) {
+  return (event: React.MouseEvent<T, MouseEvent>) => {
+    event.preventDefault()
+    action(key)(event)
+  }
+}
+
+function createTweetFormActionHandler<T>(
+  key:
+    | "onProfileClick"
+    | "onAttachImageClick"
+    | "onAttachGifClick"
+    | "onCreatePollClick"
+    | "onAttachEmojiClick"
+    | "onScheduleClick"
+    | "onAttachLocationClick"
+    | "onTweetClick"
+) {
+  return (event: React.MouseEvent<T, MouseEvent>) => {
+    event.preventDefault()
+    action(key)(event)
+  }
+}
+
+function createTimelineActionHandler<T>(
   key:
     | "onUserClick"
+    | "onDateClick"
     | "onTweetClick"
     | "onMoreClick"
     | "onAnswersClick"
@@ -44,10 +80,7 @@ function createTimelineActionHandler(
     | "onLikesClick"
     | "onShareClick"
 ) {
-  return (
-    id: string,
-    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
-  ) => {
+  return (id: string, event: React.MouseEvent<T, MouseEvent>) => {
     event.preventDefault()
     action(`${key}/${id}`)(event)
   }
@@ -61,10 +94,7 @@ function createSearchFormActionHandler() {
 }
 
 function createHotTopicTopicActionHandler() {
-  return (
-    id: string,
-    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
-  ) => {
+  return (id: string, event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     event.preventDefault()
     action(`onTopicClick/${id}`)(event)
   }
@@ -73,7 +103,7 @@ function createHotTopicTopicActionHandler() {
 function createHotTopicTopicMoreActionHandler() {
   return (
     id: string,
-    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     event.preventDefault()
     event.stopPropagation()
@@ -82,17 +112,14 @@ function createHotTopicTopicMoreActionHandler() {
 }
 
 function createHotTopicMoreActionHandler() {
-  return (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+  return (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     event.preventDefault()
     action("onTopicMoreClick")(event)
   }
 }
 
 function createUsersRecommendationsUserActionHandler() {
-  return (
-    id: string,
-    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
-  ) => {
+  return (id: string, event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     event.preventDefault()
     action(`onUsersRecommendationsUserClick/${id}`)(event)
   }
@@ -110,13 +137,13 @@ function createUsersRecommendationsFollowActionHandler() {
 }
 
 function createUsersRecommendationsMoreActionHandler() {
-  return (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+  return (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     event.preventDefault()
     action("onUsersRecommendationsMoreClick")(event)
   }
 }
 
-function createFooterActionHandler(
+function createFooterActionHandler<T>(
   key:
     | "onTosClick"
     | "onPrivacyClick"
@@ -125,28 +152,81 @@ function createFooterActionHandler(
     | "onAdsClick"
     | "onMoreClick"
 ) {
-  return (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+  return (event: React.MouseEvent<T, MouseEvent>) => {
     event.preventDefault()
     action(key)(event)
   }
 }
 
 export const Default = Template.bind({})
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
 Default.args = {
-  sidebar: <Sidebar />,
+  sidebar: (
+    <Sidebar
+      logoUrl="#"
+      homeUrl="#"
+      exploreUrl="#"
+      notificationsUrl="#"
+      messagesUrl="#"
+      bookmarksUrl="#"
+      listsUrl="#"
+      profileUrl="#"
+      tweetUrl="#"
+      onLogoClick={createSidebarActionHandler("onLogoClick")}
+      onHomeClick={createSidebarActionHandler("onHomeClick")}
+      onExploreClick={createSidebarActionHandler("onExploreClick")}
+      onNotificationsClick={createSidebarActionHandler("onNotificationsClick")}
+      onMessagesClick={createSidebarActionHandler("onMessagesClick")}
+      onBookmarksClick={createSidebarActionHandler("onBookmarksClick")}
+      onListsClick={createSidebarActionHandler("onListsClick")}
+      onProfileClick={createSidebarActionHandler("onProfileClick")}
+      onMoreClick={createSidebarActionHandler("onMoreClick")}
+      onTweetClick={createSidebarActionHandler("onTweetClick")}
+    />
+  ),
   content: (
     <React.Fragment>
       <div className="mx-5 mt-3 mb-5">
         <Header
           title="Home"
-          onProfileClick={createActionHandler("onProfileClick")}
-          onTitleClick={createActionHandler("onTitleClick")}
-          onSettingsClick={createActionHandler("onSettingsClick")}
+          onProfileClick={createHeaderActionHandler<HTMLDivElement>(
+            "onProfileClick"
+          )}
+          onTitleClick={createHeaderActionHandler<HTMLDivElement>(
+            "onTitleClick"
+          )}
+          onSettingsClick={createHeaderActionHandler<HTMLButtonElement>(
+            "onSettingsClick"
+          )}
         />
       </div>
       <div className="mx-5">
-        <TweetForm />
+        <TweetForm
+          userUrl="#"
+          onProfileClick={createTweetFormActionHandler<HTMLAnchorElement>(
+            "onProfileClick"
+          )}
+          onAttachImageClick={createTweetFormActionHandler<HTMLButtonElement>(
+            "onAttachImageClick"
+          )}
+          onAttachGifClick={createTweetFormActionHandler<HTMLButtonElement>(
+            "onAttachGifClick"
+          )}
+          onCreatePollClick={createTweetFormActionHandler<HTMLButtonElement>(
+            "onCreatePollClick"
+          )}
+          onAttachEmojiClick={createTweetFormActionHandler<HTMLButtonElement>(
+            "onAttachEmojiClick"
+          )}
+          onScheduleClick={createTweetFormActionHandler<HTMLButtonElement>(
+            "onScheduleClick"
+          )}
+          onAttachLocationClick={createTweetFormActionHandler<HTMLButtonElement>(
+            "onAttachLocationClick"
+          )}
+          onTweetClick={createTweetFormActionHandler<HTMLButtonElement>(
+            "onTweetClick"
+          )}
+        />
       </div>
       <Separator className="hidden sm:flex mt-3" />
       <Timeline
@@ -158,7 +238,8 @@ Default.args = {
               fullName: "Salvador Dooley",
               nickName: "@Peggie_Fisher80",
               image:
-                "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/398.jpg"
+                "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/398.jpg",
+              url: "#"
             },
             body: (
               <React.Fragment>
@@ -173,7 +254,8 @@ Default.args = {
               answers: "75",
               retweets: "102",
               likes: "474"
-            }
+            },
+            url: "#"
           },
           {
             id: "612d9bf3-02d6-4d41-b4a8-e46354032918",
@@ -182,7 +264,8 @@ Default.args = {
               fullName: "Cedric Walsh",
               nickName: "@Megane-Bosco",
               image:
-                "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/376.jpg"
+                "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/376.jpg",
+              url: "#"
             },
             body: (
               <React.Fragment>
@@ -203,7 +286,8 @@ Default.args = {
               answers: "40",
               retweets: "363",
               likes: "842"
-            }
+            },
+            url: "#"
           },
           {
             id: "0ce8bdb9-7d31-4179-8dac-acbb27e61ec3",
@@ -212,7 +296,8 @@ Default.args = {
               fullName: "Mr. Rachel Green",
               nickName: "@Dawson51",
               image:
-                "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/256.jpg"
+                "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/256.jpg",
+              url: "#"
             },
             body: (
               <React.Fragment>
@@ -233,7 +318,8 @@ Default.args = {
               answers: "14",
               retweets: "1",
               likes: "218"
-            }
+            },
+            url: "#"
           },
           {
             id: "4bc6df7d-406e-4c3b-8041-9b4f7082d551",
@@ -242,7 +328,8 @@ Default.args = {
               fullName: "Miss Nelson Mertz",
               nickName: "@June_Schumm8",
               image:
-                "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/48.jpg"
+                "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/48.jpg",
+              url: "#"
             },
             body: (
               <React.Fragment>
@@ -259,7 +346,8 @@ Default.args = {
               answers: "60",
               retweets: "381",
               likes: "190"
-            }
+            },
+            url: "#"
           },
           {
             id: "1990d649-5efe-4c5c-8e52-ca861e1b942d",
@@ -268,7 +356,8 @@ Default.args = {
               fullName: "Tony Bashirian",
               nickName: "@Asa_Sauer45",
               image:
-                "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1193.jpg"
+                "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1193.jpg",
+              url: "#"
             },
             body: (
               <React.Fragment>
@@ -289,7 +378,8 @@ Default.args = {
               answers: "11",
               retweets: "284",
               likes: "768"
-            }
+            },
+            url: "#"
           },
           {
             id: "34eeb1b0-a30e-4670-8250-f1abe0bd6fa4",
@@ -298,7 +388,8 @@ Default.args = {
               fullName: "Dr. Maurice Maggio",
               nickName: "@Jennings_Braun99",
               image:
-                "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1176.jpg"
+                "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1176.jpg",
+              url: "#"
             },
             body: (
               <React.Fragment>
@@ -320,7 +411,8 @@ Default.args = {
               answers: "78",
               retweets: "218",
               likes: "1.377"
-            }
+            },
+            url: "#"
           },
           {
             id: "90402a92-9fa9-4746-904c-6cf0c5507d36",
@@ -329,7 +421,8 @@ Default.args = {
               fullName: "Lillian Jerde PhD",
               nickName: "@Olen18",
               image:
-                "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/218.jpg"
+                "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/218.jpg",
+              url: "#"
             },
             body: (
               <React.Fragment>
@@ -350,7 +443,8 @@ Default.args = {
               answers: "19",
               retweets: "174",
               likes: "560"
-            }
+            },
+            url: "#"
           },
           {
             id: "0442b58c-6159-405e-8f88-67d168e58f61",
@@ -359,7 +453,8 @@ Default.args = {
               fullName: "Candace Ritchie",
               nickName: "@Dorothea_Balistreri",
               image:
-                "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/122.jpg"
+                "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/122.jpg",
+              url: "#"
             },
             body: (
               <React.Fragment>
@@ -372,16 +467,34 @@ Default.args = {
               answers: "26",
               retweets: "34",
               likes: "75"
-            }
+            },
+            url: "#"
           }
         ]}
-        onUserClick={createTimelineActionHandler("onUserClick")}
-        onTweetClick={createTimelineActionHandler("onTweetClick")}
-        onMoreClick={createTimelineActionHandler("onMoreClick")}
-        onAnswersClick={createTimelineActionHandler("onAnswersClick")}
-        onRetweetsClick={createTimelineActionHandler("onRetweetsClick")}
-        onLikesClick={createTimelineActionHandler("onLikesClick")}
-        onShareClick={createTimelineActionHandler("onShareClick")}
+        onUserClick={createTimelineActionHandler<HTMLAnchorElement>(
+          "onUserClick"
+        )}
+        onDateClick={createTimelineActionHandler<HTMLAnchorElement>(
+          "onDateClick"
+        )}
+        onTweetClick={createTimelineActionHandler<HTMLDivElement>(
+          "onTweetClick"
+        )}
+        onMoreClick={createTimelineActionHandler<HTMLButtonElement>(
+          "onMoreClick"
+        )}
+        onAnswersClick={createTimelineActionHandler<HTMLButtonElement>(
+          "onAnswersClick"
+        )}
+        onRetweetsClick={createTimelineActionHandler<HTMLButtonElement>(
+          "onRetweetsClick"
+        )}
+        onLikesClick={createTimelineActionHandler<HTMLButtonElement>(
+          "onLikesClick"
+        )}
+        onShareClick={createTimelineActionHandler<HTMLButtonElement>(
+          "onShareClick"
+        )}
       />
     </React.Fragment>
   ),
@@ -434,21 +547,24 @@ Default.args = {
             fullName: "Colin Leannon",
             nickName: "@Van_Kris",
             image:
-              "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/167.jpg"
+              "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/167.jpg",
+            url: "#"
           },
           {
             id: "17b124fd-c07a-4af6-8412-8194fe011264",
             fullName: "Beth Klocko",
             nickName: "@Sadye.Gorczany",
             image:
-              "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/310.jpg"
+              "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/310.jpg",
+            url: "#"
           },
           {
             id: "bcb770a9-08b2-4260-915b-001e4c5d43ae",
             fullName: "Marvin Koepp V",
             nickName: "@Hans85",
             image:
-              "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1060.jpg"
+              "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1060.jpg",
+            url: "#"
           }
         ]}
         onUserClick={createUsersRecommendationsUserActionHandler()}
@@ -457,12 +573,23 @@ Default.args = {
       />
       <Footer
         className="mx-4"
-        onTosClick={createFooterActionHandler("onTosClick")}
-        onPrivacyClick={createFooterActionHandler("onPrivacyClick")}
-        onCookieClick={createFooterActionHandler("onCookieClick")}
-        onAccesibilityClick={createFooterActionHandler("onAccesibilityClick")}
-        onAdsClick={createFooterActionHandler("onAdsClick")}
-        onMoreClick={createFooterActionHandler("onMoreClick")}
+        tosUrl="#"
+        privacyUrl="#"
+        cookieUrl="#"
+        accesibilityUrl="#"
+        adsUrl="#"
+        onTosClick={createFooterActionHandler<HTMLAnchorElement>("onTosClick")}
+        onPrivacyClick={createFooterActionHandler<HTMLAnchorElement>(
+          "onPrivacyClick"
+        )}
+        onCookieClick={createFooterActionHandler<HTMLAnchorElement>(
+          "onCookieClick"
+        )}
+        onAccesibilityClick={createFooterActionHandler<HTMLAnchorElement>(
+          "onAccesibilityClick"
+        )}
+        onAdsClick={createFooterActionHandler<HTMLAnchorElement>("onAdsClick")}
+        onMoreClick={createFooterActionHandler<HTMLDivElement>("onMoreClick")}
       />
     </div>
   )

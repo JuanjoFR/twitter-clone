@@ -12,10 +12,7 @@ const Template: ComponentStory<typeof HotTopics> = (args) => (
 )
 
 function createTopicActionHandler() {
-  return (
-    id: string,
-    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
-  ) => {
+  return (id: string, event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     event.preventDefault()
     action(`onTopicClick/${id}`)(event)
   }
@@ -24,7 +21,7 @@ function createTopicActionHandler() {
 function createTopicMoreActionHandler() {
   return (
     id: string,
-    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     event.preventDefault()
     event.stopPropagation()
@@ -33,7 +30,7 @@ function createTopicMoreActionHandler() {
 }
 
 function createMoreActionHandler() {
-  return (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+  return (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     event.preventDefault()
     action("onMoreClick")(event)
   }

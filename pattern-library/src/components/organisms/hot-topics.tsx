@@ -5,14 +5,14 @@ interface Props {
   data: Topic[]
   onTopicClick?: (
     id: string,
-    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => void
   onTopicMoreClick?: (
     id: string,
-    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => void
   onShowMoreClick?: (
-    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => void
 }
 
@@ -30,7 +30,7 @@ function HotTopics({
       {data.map((item) => (
         <HotTopicItem
           key={item.id}
-          data={item}
+          {...item}
           onTopicClick={(event) =>
             onTopicClick ? onTopicClick(item.id, event) : null
           }
@@ -39,13 +39,12 @@ function HotTopics({
           }
         />
       ))}
-      <a
-        className="text-[#1d9bf0] pb-3 pt-1 px-4 rounded-b-2xl bg-[#F7F9F9] hover:bg-black hover:bg-opacity-[0.07]"
-        href="#show-more"
+      <div
+        className="text-[#1d9bf0] pb-3 pt-1 px-4 rounded-b-2xl bg-[#F7F9F9] hover:bg-black hover:bg-opacity-[0.07] cursor-pointer"
         onClick={onShowMoreClick}
       >
         Show more
-      </a>
+      </div>
     </div>
   )
 }

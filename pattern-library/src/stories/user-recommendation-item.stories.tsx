@@ -12,7 +12,7 @@ const Template: ComponentStory<typeof UserRecommendationItem> = (args) => (
 )
 
 function createUserActionHandler() {
-  return (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+  return (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     event.preventDefault()
     action("onUserClick")(event)
   }

@@ -33,9 +33,19 @@ interface SidebarLinkProps {
   ActiveIcon: Icon
   text: string
   active?: boolean
+  url?: string
   onClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void
 }
 interface SidebarProps {
+  logoUrl?: string
+  homeUrl?: string
+  exploreUrl?: string
+  notificationsUrl?: string
+  messagesUrl?: string
+  bookmarksUrl?: string
+  listsUrl?: string
+  profileUrl?: string
+  tweetUrl?: string
   onLogoClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void
   onHomeClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void
   onExploreClick?: (
@@ -67,12 +77,13 @@ function SidebarLink({
   text,
   Icon,
   ActiveIcon,
+  url,
   onClick
 }: SidebarLinkProps) {
   return (
     <a
       className="flex items-center justify-center w-[52px] h-[52px] xl:w-fit xl:px-4 rounded-full text-[#0F1419] hover:bg-sidebar-hover"
-      href="#home"
+      href={url}
       onClick={onClick}
     >
       {active ? (
@@ -86,6 +97,15 @@ function SidebarLink({
 }
 
 function Sidebar({
+  logoUrl,
+  homeUrl,
+  exploreUrl,
+  notificationsUrl,
+  messagesUrl,
+  bookmarksUrl,
+  listsUrl,
+  profileUrl,
+  tweetUrl,
   onLogoClick,
   onHomeClick,
   onExploreClick,
@@ -103,7 +123,7 @@ function Sidebar({
         <div className="flex justify-center xl:justify-start mb-1 xl:pr-8">
           <a
             className="w-[52px] h-[52px] rounded-full flex items-center justify-center hover:bg-main-hover"
-            href="#home"
+            href={logoUrl}
             onClick={onLogoClick}
           >
             <svg
@@ -126,6 +146,7 @@ function Sidebar({
                 ActiveIcon={HomeIconSolid}
                 text="Home"
                 active
+                url={homeUrl}
                 onClick={onHomeClick}
               />
             </li>
@@ -135,6 +156,7 @@ function Sidebar({
                 Icon={HashtagIconOutline}
                 ActiveIcon={HashtagIconSolid}
                 text="Explore"
+                url={exploreUrl}
                 onClick={onExploreClick}
               />
             </li>
@@ -144,6 +166,7 @@ function Sidebar({
                 Icon={BellIconOutline}
                 ActiveIcon={BellIconSolid}
                 text="Notifications"
+                url={notificationsUrl}
                 onClick={onNotificationsClick}
               />
             </li>
@@ -153,6 +176,7 @@ function Sidebar({
                 Icon={EnvelopeIconOutline}
                 ActiveIcon={EnvelopeIconSolid}
                 text="Messages"
+                url={messagesUrl}
                 onClick={onMessagesClick}
               />
             </li>
@@ -162,6 +186,7 @@ function Sidebar({
                 Icon={BookmarkIconOutline}
                 ActiveIcon={BookmarkIconSolid}
                 text="Bookmarks"
+                url={bookmarksUrl}
                 onClick={onBookmarksClick}
               />
             </li>
@@ -171,6 +196,7 @@ function Sidebar({
                 Icon={ListBulletIconOutline}
                 ActiveIcon={ListBulletIconSolid}
                 text="Lists"
+                url={listsUrl}
                 onClick={onListsClick}
               />
             </li>
@@ -180,6 +206,7 @@ function Sidebar({
                 Icon={UserIconOutline}
                 ActiveIcon={UserIconSolid}
                 text="Profile"
+                url={profileUrl}
                 onClick={onProfileClick}
               />
             </li>
@@ -197,7 +224,7 @@ function Sidebar({
         <div className="flex justify-center xl:justify-start mb-1 xl:pr-8">
           <a
             className="w-[52px] h-[52px] xl:w-full xl:px-4 rounded-full flex items-center justify-center bg-[#1d9bf0] hover:bg-[#1A8CD8]"
-            href="#tweet"
+            href={tweetUrl}
             onClick={onTweetClick}
           >
             <svg
@@ -216,7 +243,7 @@ function Sidebar({
       <div className="xl:w-full">
         <a
           className="w-16 h-16 xl:w-auto rounded-full hover:bg-sidebar-hover flex items-center justify-center"
-          href="#profile"
+          href={profileUrl}
           onClick={onProfileClick}
         >
           <div className="flex xl:px-4 items-center justify-center w-full">

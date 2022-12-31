@@ -5,14 +5,14 @@ interface Props {
   data: User[]
   onUserClick?: (
     id: string,
-    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => void
   onFollowClick?: (
     id: string,
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => void
   onShowMoreClick?: (
-    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => void
 }
 
@@ -39,13 +39,12 @@ function UsersRecommendations({
           }
         />
       ))}
-      <a
-        className="text-[#1d9bf0] pb-3 pt-1 px-4 rounded-b-2xl bg-[#F7F9F9] hover:bg-black hover:bg-opacity-[0.07]"
-        href="#show-more"
+      <button
+        className="flex text-[#1d9bf0] pb-3 pt-1 px-4 rounded-b-2xl bg-[#f8f7f9] hover:bg-black hover:bg-opacity-[0.07]"
         onClick={onShowMoreClick}
       >
         Show more
-      </a>
+      </button>
     </div>
   )
 }

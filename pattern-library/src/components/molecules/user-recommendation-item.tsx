@@ -1,7 +1,7 @@
 import { User } from "../types"
 
 interface Props extends Omit<User, "id"> {
-  onUserClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void
+  onUserClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
   onFollowClick?: (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => void
@@ -15,9 +15,8 @@ function UserRecommendationItem({
   onFollowClick
 }: Props) {
   return (
-    <a
-      href="#user"
-      className="flex justify-between px-4 py-3 bg-[#F7F9F9] hover:bg-black hover:bg-opacity-[0.07]"
+    <div
+      className="flex justify-between px-4 py-3 bg-[#F7F9F9] hover:bg-black hover:bg-opacity-[0.07] cursor-pointer"
       onClick={onUserClick}
     >
       <div className="flex flex-shrink-0 items-center justify-center mr-4">
@@ -35,7 +34,7 @@ function UserRecommendationItem({
           Follow
         </button>
       </div>
-    </a>
+    </div>
   )
 }
 

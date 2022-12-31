@@ -9,29 +9,30 @@ import { Tweet as ITweet } from "../types"
 
 interface Props extends Omit<ITweet, "id"> {
   onUserClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void
-  onTweetClick?: (
-    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
-  ) => void
-  onMoreClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void
+  onDateClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void
+  onTweetClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
+  onMoreClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
   onAnswersClick?: (
-    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => void
   onRetweetsClick?: (
-    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => void
   onLikesClick?: (
-    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => void
   onShareClick?: (
-    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => void
 }
 
 function Tweet({
   user,
   body,
+  url,
   meta,
   onUserClick,
+  onDateClick,
   onTweetClick,
   onMoreClick,
   onAnswersClick,
@@ -42,7 +43,7 @@ function Tweet({
   return (
     <div className="flex">
       <div className="ml-5">
-        <a href="#user" onClick={onUserClick}>
+        <a href={user.url} onClick={onUserClick}>
           <img
             className="w-12 h-12 rounded-full mr-4"
             alt="Profile"
@@ -54,60 +55,53 @@ function Tweet({
         <div className="flex items-center justify-between text-base">
           <div>
             <a
-              href="#user"
+              href={user.url}
               className="font-bold mr-2 text-[#0F1419]"
               onClick={onUserClick}
             >
               {user.fullName}
             </a>
             <a
-              href="#user"
+              href={user.url}
               className="mr-2 text-[#536471]"
               onClick={onUserClick}
             >
               {user.nickName}
             </a>
             <span className="mr-2 text-[#536471]">·</span>
-            <a href="#tweet" className="text-[#536471]" onClick={onTweetClick}>
+            <a href={url} className="text-[#536471]" onClick={onDateClick}>
               {meta.time}
             </a>
           </div>
-          <a href="#more" onClick={onMoreClick}>
+          <button onClick={onMoreClick}>
             <EllipsisHorizontalIcon className="w-5 h-5" color="#0F1419" />
-          </a>
+          </button>
         </div>
-        <div className="mb-3 text-[#0F1419]">
-          <a href="#tweet" onClick={onTweetClick}>
-            {body}
-          </a>
+        <div
+          className="mb-3 text-[#0F1419] cursor-pointer"
+          onClick={onTweetClick}
+        >
+          {body}
         </div>
         <div className="flex justify-between text-[#536471] text-sm">
-          <a
-            href="#answers"
-            className="flex items-center"
-            onClick={onAnswersClick}
-          >
+          <button className="flex items-center" onClick={onAnswersClick}>
             <ChatBubbleOvalLeftIcon className="w-5 h-5 mr-3" color="#536471" />
             <span>{meta.answers}</span>
-          </a>
-          <a
-            href="#retweets"
-            className="flex items-center"
-            onClick={onRetweetsClick}
-          >
+          </button>
+          <button className="flex items-center" onClick={onRetweetsClick}>
             <ArrowPathRoundedSquareIcon
               className="w-5 h-5 mr-3"
               color="#536471"
             />
             <span>{meta.retweets}</span>
-          </a>
-          <a href="#likes" className="flex items-center" onClick={onLikesClick}>
+          </button>
+          <button className="flex items-center" onClick={onLikesClick}>
             <HeartIcon className="w-5 h-5 mr-3" color="#536471" />
             <span>{meta.likes}</span>
-          </a>
-          <a href="#share" className="flex items-center" onClick={onShareClick}>
+          </button>
+          <button className="flex items-center" onClick={onShareClick}>
             <ArrowUpTrayIcon className="w-5 h-5" color="#536471" />
-          </a>
+          </button>
         </div>
       </div>
     </div>

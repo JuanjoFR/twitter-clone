@@ -12,9 +12,10 @@ const Template: ComponentStory<typeof Timeline> = (args) => (
   <Timeline {...args} />
 )
 
-function createActionHandler(
+function createActionHandler<T>(
   key:
     | "onUserClick"
+    | "onDateClick"
     | "onTweetClick"
     | "onMoreClick"
     | "onAnswersClick"
@@ -22,10 +23,7 @@ function createActionHandler(
     | "onLikesClick"
     | "onShareClick"
 ) {
-  return (
-    id: string,
-    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
-  ) => {
+  return (id: string, event: React.MouseEvent<T, MouseEvent>) => {
     event.preventDefault()
     action(`${key}/${id}`)(event)
   }
@@ -42,7 +40,8 @@ Default.args = {
         fullName: "Salvador Dooley",
         nickName: "@Peggie_Fisher80",
         image:
-          "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/398.jpg"
+          "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/398.jpg",
+        url: "#"
       },
       body: (
         <React.Fragment>
@@ -55,7 +54,8 @@ Default.args = {
         answers: "75",
         retweets: "102",
         likes: "474"
-      }
+      },
+      url: "#"
     },
     {
       id: "612d9bf3-02d6-4d41-b4a8-e46354032918",
@@ -64,7 +64,8 @@ Default.args = {
         fullName: "Cedric Walsh",
         nickName: "@Megane-Bosco",
         image:
-          "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/376.jpg"
+          "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/376.jpg",
+        url: "#"
       },
       body: (
         <React.Fragment>
@@ -84,7 +85,8 @@ Default.args = {
         answers: "40",
         retweets: "363",
         likes: "842"
-      }
+      },
+      url: "#"
     },
     {
       id: "0ce8bdb9-7d31-4179-8dac-acbb27e61ec3",
@@ -93,7 +95,8 @@ Default.args = {
         fullName: "Mr. Rachel Green",
         nickName: "@Dawson51",
         image:
-          "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/256.jpg"
+          "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/256.jpg",
+        url: "#"
       },
       body: (
         <React.Fragment>
@@ -110,7 +113,8 @@ Default.args = {
         answers: "14",
         retweets: "1",
         likes: "218"
-      }
+      },
+      url: "#"
     },
     {
       id: "4bc6df7d-406e-4c3b-8041-9b4f7082d551",
@@ -119,7 +123,8 @@ Default.args = {
         fullName: "Miss Nelson Mertz",
         nickName: "@June_Schumm8",
         image:
-          "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/48.jpg"
+          "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/48.jpg",
+        url: "#"
       },
       body: (
         <React.Fragment>
@@ -135,7 +140,8 @@ Default.args = {
         answers: "60",
         retweets: "381",
         likes: "190"
-      }
+      },
+      url: "#"
     },
     {
       id: "1990d649-5efe-4c5c-8e52-ca861e1b942d",
@@ -144,7 +150,8 @@ Default.args = {
         fullName: "Tony Bashirian",
         nickName: "@Asa_Sauer45",
         image:
-          "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1193.jpg"
+          "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1193.jpg",
+        url: "#"
       },
       body: (
         <React.Fragment>
@@ -164,7 +171,8 @@ Default.args = {
         answers: "11",
         retweets: "284",
         likes: "768"
-      }
+      },
+      url: "#"
     },
     {
       id: "34eeb1b0-a30e-4670-8250-f1abe0bd6fa4",
@@ -173,7 +181,8 @@ Default.args = {
         fullName: "Dr. Maurice Maggio",
         nickName: "@Jennings_Braun99",
         image:
-          "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1176.jpg"
+          "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1176.jpg",
+        url: "#"
       },
       body: (
         <React.Fragment>
@@ -193,7 +202,8 @@ Default.args = {
         answers: "78",
         retweets: "218",
         likes: "1.377"
-      }
+      },
+      url: "#"
     },
     {
       id: "90402a92-9fa9-4746-904c-6cf0c5507d36",
@@ -202,7 +212,8 @@ Default.args = {
         fullName: "Lillian Jerde PhD",
         nickName: "@Olen18",
         image:
-          "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/218.jpg"
+          "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/218.jpg",
+        url: "#"
       },
       body: (
         <React.Fragment>
@@ -223,7 +234,8 @@ Default.args = {
         answers: "19",
         retweets: "174",
         likes: "560"
-      }
+      },
+      url: "#"
     },
     {
       id: "0442b58c-6159-405e-8f88-67d168e58f61",
@@ -232,7 +244,8 @@ Default.args = {
         fullName: "Candace Ritchie",
         nickName: "@Dorothea_Balistreri",
         image:
-          "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/122.jpg"
+          "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/122.jpg",
+        url: "#"
       },
       body: (
         <React.Fragment>
@@ -245,14 +258,16 @@ Default.args = {
         answers: "26",
         retweets: "34",
         likes: "75"
-      }
+      },
+      url: "#"
     }
   ],
-  onUserClick: createActionHandler("onUserClick"),
-  onTweetClick: createActionHandler("onTweetClick"),
-  onMoreClick: createActionHandler("onMoreClick"),
-  onAnswersClick: createActionHandler("onAnswersClick"),
-  onRetweetsClick: createActionHandler("onRetweetsClick"),
-  onLikesClick: createActionHandler("onLikesClick"),
-  onShareClick: createActionHandler("onShareClick")
+  onUserClick: createActionHandler<HTMLAnchorElement>("onUserClick"),
+  onDateClick: createActionHandler<HTMLAnchorElement>("onDateClick"),
+  onTweetClick: createActionHandler<HTMLDivElement>("onTweetClick"),
+  onMoreClick: createActionHandler<HTMLButtonElement>("onMoreClick"),
+  onAnswersClick: createActionHandler<HTMLButtonElement>("onAnswersClick"),
+  onRetweetsClick: createActionHandler<HTMLButtonElement>("onRetweetsClick"),
+  onLikesClick: createActionHandler<HTMLButtonElement>("onLikesClick"),
+  onShareClick: createActionHandler<HTMLButtonElement>("onShareClick")
 }

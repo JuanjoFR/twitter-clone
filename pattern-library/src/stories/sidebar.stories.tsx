@@ -43,6 +43,15 @@ function createActionHandler(
 export const Default = Template.bind({})
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Default.args = {
+  logoUrl: "#",
+  homeUrl: "#",
+  exploreUrl: "#",
+  notificationsUrl: "#",
+  messagesUrl: "#",
+  bookmarksUrl: "#",
+  listsUrl: "#",
+  profileUrl: "#",
+  tweetUrl: "#",
   onLogoClick: createActionHandler("onLogoClick"),
   onHomeClick: createActionHandler("onHomeClick"),
   onExploreClick: createActionHandler("onExploreClick"),

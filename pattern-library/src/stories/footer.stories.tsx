@@ -9,7 +9,7 @@ export default {
 
 const Template: ComponentStory<typeof Footer> = (args) => <Footer {...args} />
 
-function createActionHandler(
+function createActionHandler<T>(
   key:
     | "onTosClick"
     | "onPrivacyClick"
@@ -18,7 +18,7 @@ function createActionHandler(
     | "onAdsClick"
     | "onMoreClick"
 ) {
-  return (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+  return (event: React.MouseEvent<T, MouseEvent>) => {
     event.preventDefault()
     action(key)(event)
   }
@@ -26,10 +26,17 @@ function createActionHandler(
 
 export const Default = Template.bind({})
 Default.args = {
-  onTosClick: createActionHandler("onTosClick"),
-  onPrivacyClick: createActionHandler("onPrivacyClick"),
-  onCookieClick: createActionHandler("onCookieClick"),
-  onAccesibilityClick: createActionHandler("onAccesibilityClick"),
-  onAdsClick: createActionHandler("onAdsClick"),
-  onMoreClick: createActionHandler("onMoreClick")
+  tosUrl: "#",
+  privacyUrl: "#",
+  cookieUrl: "#",
+  accesibilityUrl: "#",
+  adsUrl: "#",
+  onTosClick: createActionHandler<HTMLAnchorElement>("onTosClick"),
+  onPrivacyClick: createActionHandler<HTMLAnchorElement>("onPrivacyClick"),
+  onCookieClick: createActionHandler<HTMLAnchorElement>("onCookieClick"),
+  onAccesibilityClick: createActionHandler<HTMLAnchorElement>(
+    "onAccesibilityClick"
+  ),
+  onAdsClick: createActionHandler<HTMLAnchorElement>("onAdsClick"),
+  onMoreClick: createActionHandler<HTMLDivElement>("onMoreClick")
 }

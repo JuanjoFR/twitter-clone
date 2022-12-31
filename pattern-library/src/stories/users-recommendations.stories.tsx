@@ -12,10 +12,7 @@ const Template: ComponentStory<typeof UsersRecommendations> = (args) => (
 )
 
 function createUserActionHandler() {
-  return (
-    id: string,
-    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
-  ) => {
+  return (id: string, event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     event.preventDefault()
     action(`onUserClick/${id}`)(event)
   }
@@ -33,7 +30,7 @@ function createFollowActionHandler() {
 }
 
 function createMoreActionHandler() {
-  return (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+  return (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     event.preventDefault()
     action("onMoreClick")(event)
   }
@@ -47,21 +44,24 @@ Default.args = {
       fullName: "Colin Leannon",
       nickName: "@Van_Kris",
       image:
-        "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/167.jpg"
+        "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/167.jpg",
+      url: "#"
     },
     {
       id: "17b124fd-c07a-4af6-8412-8194fe011264",
       fullName: "Beth Klocko",
       nickName: "@Sadye.Gorczany",
       image:
-        "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/310.jpg"
+        "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/310.jpg",
+      url: "#"
     },
     {
       id: "bcb770a9-08b2-4260-915b-001e4c5d43ae",
       fullName: "Marvin Koepp V",
       nickName: "@Hans85",
       image:
-        "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1060.jpg"
+        "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1060.jpg",
+      url: "#"
     }
   ],
   onUserClick: createUserActionHandler(),

@@ -12,14 +12,14 @@ const Template: ComponentStory<typeof HotTopicItem> = (args) => (
 )
 
 function createTopicActionHandler() {
-  return (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+  return (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     event.preventDefault()
     action("onTopicClick")(event)
   }
 }
 
 function createMoreActionHandler() {
-  return (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+  return (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     event.preventDefault()
     event.stopPropagation()
     action("onMoreClick")(event)
@@ -28,12 +28,9 @@ function createMoreActionHandler() {
 
 export const Default = Template.bind({})
 Default.args = {
-  data: {
-    id: "33c2a660-1755-4a07-b6e9-202b0b5e545a",
-    country: "Spain",
-    body: "Pink customized despite",
-    tweets: "530K"
-  },
+  country: "Spain",
+  body: "Pink customized despite",
+  tweets: "530K",
   onTopicClick: createTopicActionHandler(),
   onMoreClick: createMoreActionHandler()
 }
