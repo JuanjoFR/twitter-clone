@@ -18,7 +18,7 @@
 // // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 // reportWebVitals();
 
-import Header from "./components/organisms/header"
+import Header from "./organisms/header/header"
 
-export { Button, Separator } from "./components/atoms"
+export { Button, Separator } from "./atoms"
 export { Header }
