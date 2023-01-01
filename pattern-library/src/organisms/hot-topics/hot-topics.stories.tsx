@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react"
-import HotTopics from "../components/organisms/hot-topics/hot-topics"
+import HotTopics from "./hot-topics"
 import { action } from "@storybook/addon-actions"
 
 export default {

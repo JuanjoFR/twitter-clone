@@ -1,7 +1,7 @@
 import React from "react"
 import { ComponentStory, ComponentMeta } from "@storybook/react"
 import { action } from "@storybook/addon-actions"
-import Sidebar from "../components/organisms/sidebar/sidebar"
+import Sidebar from "./sidebar"
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {

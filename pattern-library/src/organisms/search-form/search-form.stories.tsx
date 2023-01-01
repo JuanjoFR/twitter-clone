@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react"
-import SearchForm from "../components/organisms/search-form/search-form"
+import SearchForm from "./search-form"
 import { action } from "@storybook/addon-actions"
 
 export default {

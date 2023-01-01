@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react"
-import UsersRecommendations from "../components/organisms/users-recommendations/users-recommendations"
+import UsersRecommendations from "./users-recommendations"
 import { action } from "@storybook/addon-actions"
 
 export default {

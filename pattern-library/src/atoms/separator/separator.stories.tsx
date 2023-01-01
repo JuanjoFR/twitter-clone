@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react"
 
-import Separator from "../components/atoms/separator/separator"
+import Separator from "./separator"
 
 export default {
   title: "Components/Separator",
