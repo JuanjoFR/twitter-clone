@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react"
-import Header from "../components/organisms/header"
+import Header from "../components/organisms/header/header"
 import { action } from "@storybook/addon-actions"
 
 export default {

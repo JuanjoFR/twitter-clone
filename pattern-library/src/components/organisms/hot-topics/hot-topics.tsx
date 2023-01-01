@@ -1,5 +1,5 @@
-import HotTopicItem from "../molecules/hot-topic-item"
-import { Topic } from "../types"
+import HotTopicItem from "../../molecules/hot-topic-item/hot-topic-item"
+import { Topic } from "../../types"
 
 interface Props {
   data: Topic[]

@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react"
-import UserRecommendationItem from "../components/molecules/user-recommendation-item"
+import UserRecommendationItem from "../components/molecules/user-recommendation-item/user-recommendation-item"
 import { action } from "@storybook/addon-actions"
 
 export default {

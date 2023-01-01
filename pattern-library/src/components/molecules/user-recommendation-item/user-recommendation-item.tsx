@@ -1,4 +1,4 @@
-import { User } from "../types"
+import { User } from "../../types"
 
 interface Props extends Omit<User, "id"> {
   onUserClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void

@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react"
-import Footer from "../components/organisms/footer"
+import Footer from "../components/organisms/footer/footer"
 import { action } from "@storybook/addon-actions"
 
 export default {

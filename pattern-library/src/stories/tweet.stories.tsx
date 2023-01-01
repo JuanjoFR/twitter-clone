@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react"
 import { action } from "@storybook/addon-actions"
-import Tweet from "../components/molecules/tweet"
+import Tweet from "../components/molecules/tweet/tweet"
 import React from "react"
 
 export default {

@@ -1,5 +1,5 @@
-import UserRecommendationItem from "../molecules/user-recommendation-item"
-import { User } from "../types"
+import UserRecommendationItem from "../../molecules/user-recommendation-item/user-recommendation-item"
+import { User } from "../../types"
 
 interface Props {
   data: User[]

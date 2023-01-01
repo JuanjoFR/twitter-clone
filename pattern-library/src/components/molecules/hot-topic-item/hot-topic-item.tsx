@@ -1,5 +1,5 @@
 import { EllipsisHorizontalIcon } from "@heroicons/react/24/outline"
-import { Topic } from "../types"
+import { Topic } from "../../types"
 
 interface Props extends Omit<Topic, "id"> {
   onTopicClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void

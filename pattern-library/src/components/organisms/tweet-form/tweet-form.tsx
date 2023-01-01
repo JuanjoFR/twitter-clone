@@ -1,5 +1,5 @@
-import Button from "../atoms/button"
-import { User } from "../types"
+import Button from "../../atoms/button/button"
+import { User } from "../../types"
 
 interface Props {
   userUrl: User["url"]

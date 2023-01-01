@@ -5,7 +5,7 @@ import {
   HeartIcon,
   ArrowUpTrayIcon
 } from "@heroicons/react/24/outline"
-import { Tweet as ITweet } from "../types"
+import { Tweet as ITweet } from "../../types"
 
 interface Props extends Omit<ITweet, "id"> {
   onUserClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void

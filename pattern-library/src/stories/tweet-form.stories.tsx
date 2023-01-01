@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react"
 import { action } from "@storybook/addon-actions"
-import TweetForm from "../components/organisms/tweet-form"
+import TweetForm from "../components/organisms/tweet-form/tweet-form"
 
 export default {
   title: "Components/Tweet Form",
