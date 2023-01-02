@@ -1,3 +1,4 @@
+import Button from "../../atoms/button/button"
 import { User } from "../../types"
 
 interface Props extends Omit<User, "id"> {
@@ -27,12 +28,12 @@ function UserRecommendationItem({
         <span className="font-normal text-sm text-[#536471]">{nickName}</span>
       </div>
       <div className="flex items-center justify-center">
-        <button
-          className="bg-[#0F1419] text-white rounded-full px-4 py-2 font-bold text-sm"
+        <Button
+          color="secondary"
+          size="sm"
+          label="Follow"
           onClick={onFollowClick}
-        >
-          Follow
-        </button>
+        />
       </div>
     </div>
   )

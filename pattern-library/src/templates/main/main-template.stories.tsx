@@ -13,7 +13,7 @@ import Footer from "../../organisms/footer/footer"
 import UsersRecommendations from "../../organisms/users-recommendations/users-recommendations"
 
 export default {
-  title: "Components/Main Template",
+  title: "Pages/Main Template",
   component: MainTemplate,
   parameters: {
     layout: "fullscreen"
