@@ -1,24 +1,13 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom/client';
-// import './index.css';
-// import App from './App';
-// import reportWebVitals from './reportWebVitals';
-
-// const root = ReactDOM.createRoot(
-//   document.getElementById('root') as HTMLElement
-// );
-// root.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>
-// );
-
-// // If you want to start measuring performance in your app, pass a function
-// // to log results (for example: reportWebVitals(console.log))
-// // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-// reportWebVitals();
-
-import Header from "./organisms/header/header"
-
 export { Button, Separator } from "./atoms"
-export { Header }
+export { HotTopicItem, Tweet, UserRecommendationItem } from "./molecules"
+export {
+  Footer,
+  Header,
+  HotTopics,
+  SearchForm,
+  Sidebar,
+  Timeline,
+  TweetForm,
+  UsersRecommendations
+} from "./organisms"
+export { Main } from "./templates"
