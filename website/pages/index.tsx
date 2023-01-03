@@ -14,7 +14,7 @@ function Home() {
 
       <Header title="Hello world" />
       <main className={styles.main}>
-        <Button label="My Label" />
+        <Button color="secondary" size="sm" label="Register Now!" />
         <Separator />
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>

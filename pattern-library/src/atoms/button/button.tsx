@@ -1,35 +1,47 @@
-import { variantProps, VariantPropsOf } from "classname-variants/react"
-
-const buttonProps = variantProps({
-  base: "text-white font-bold px-4 py-2 rounded-full",
-  variants: {
-    color: {
-      primary: "bg-[#1D9BF0] hover:bg-[#1A8CD8]",
-      secondary: "bg-[#0F1419] hover:bg-[#272C30]"
-    },
-    size: {
-      sm: "text-sm",
-      md: "text-base"
-    },
-    disabled: {
-      true: "opacity-50"
-    }
-  },
-  defaultVariants: {
-    color: "primary",
-    size: "md"
-  }
-})
-
-type IntrinsicButtonPropps = JSX.IntrinsicElements["button"] &
-  VariantPropsOf<typeof buttonProps>
+type IntrinsicButtonPropps = Omit<
+  React.DetailedHTMLProps<
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  >,
+  "className"
+>
 
 interface Props extends IntrinsicButtonPropps {
+  color?: "primary" | "secondary"
+  size?: "sm" | "md"
   label: string
 }
 
-function Button({ label, ...rest }: Props) {
-  return <button {...buttonProps(rest)}>{label}</button>
+const colorStyle = {
+  primary: "bg-[#1D9BF0] hover:bg-[#1A8CD8]",
+  secondary: "bg-[#0F1419] hover:bg-[#272C30]"
+}
+const sizeStyle = {
+  sm: "text-sm",
+  md: "text-base"
+}
+
+function Button({
+  color = "primary",
+  size = "md",
+  label,
+  disabled,
+  ...rest
+}: Props) {
+  return (
+    <button
+      className={`
+        text-white font-bold px-4 py-2 rounded-full
+        ${colorStyle[color]}
+        ${sizeStyle[size]}
+        ${disabled ? "opacity-50" : ""}
+      `}
+      {...rest}
+      disabled={disabled}
+    >
+      {label}
+    </button>
+  )
 }
 
 export default Button
