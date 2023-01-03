@@ -23,8 +23,8 @@ function HotTopics({
   onShowMoreClick
 }: Props) {
   return (
-    <div className="flex flex-col text-[#0F1419] mb-4">
-      <h4 className="bg-[#F7F9F9] pt-3 rounded-t-2xl text-xl font-bold px-4 pb-1">
+    <div className="mb-4 flex flex-col text-[#0F1419]">
+      <h4 className="rounded-t-2xl bg-[#F7F9F9] px-4 pt-3 pb-1 text-xl font-bold">
         What's happening
       </h4>
       {data.map((item) => (
@@ -40,7 +40,7 @@ function HotTopics({
         />
       ))}
       <div
-        className="text-[#1d9bf0] pb-3 pt-1 px-4 rounded-b-2xl bg-[#F7F9F9] hover:bg-black hover:bg-opacity-[0.07] cursor-pointer"
+        className="cursor-pointer rounded-b-2xl bg-[#F7F9F9] px-4 pb-3 pt-1 text-[#1d9bf0] hover:bg-black hover:bg-opacity-[0.07]"
         onClick={onShowMoreClick}
       >
         Show more

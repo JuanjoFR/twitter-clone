@@ -17,21 +17,21 @@ function Header({
 }: Props) {
   return (
     <div className="flex items-center gap-5 text-[#0F1419]">
-      <div className="sm:hidden cursor-pointer" onClick={onProfileClick}>
+      <div className="cursor-pointer sm:hidden" onClick={onProfileClick}>
         <img
-          className="w-8 h-8 rounded-full"
+          className="h-8 w-8 rounded-full"
           alt="Profile"
           src="https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/417.jpg"
         />
       </div>
       <div
-        className="flex-1 text-lg sm:text-xl font-bold cursor-pointer"
+        className="flex-1 cursor-pointer text-lg font-bold sm:text-xl"
         onClick={onTitleClick}
       >
         <h2 className="">{title}</h2>
       </div>
       <button className="" onClick={onSettingsClick}>
-        <SparklesIcon className="w-5 h-5" />
+        <SparklesIcon className="h-5 w-5" />
       </button>
     </div>
   )

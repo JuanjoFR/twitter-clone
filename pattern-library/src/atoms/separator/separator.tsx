@@ -3,7 +3,7 @@ interface Props {
 }
 
 function Separator({ className }: Props) {
-  return <hr className={`my-8 h-px bg-[#EFF3F4] border-0 ${className}`} />
+  return <hr className={`my-8 h-px border-0 bg-[#EFF3F4] ${className}`} />
 }
 
 export default Separator

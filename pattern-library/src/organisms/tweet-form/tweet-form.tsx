@@ -41,11 +41,11 @@ function TweetForm({
   onTweetClick
 }: Props) {
   return (
-    <div className="hidden sm:flex flex-row">
+    <div className="hidden flex-row sm:flex">
       <div>
         <a href={userUrl} onClick={onProfileClick}>
           <img
-            className="w-[48px] h-[48px] rounded-full"
+            className="h-[48px] w-[48px] rounded-full"
             alt="Profile"
             src="https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/417.jpg"
           />
@@ -55,11 +55,11 @@ function TweetForm({
         <textarea
           id="message"
           rows={1}
-          className="block px-2.5 pt-4 pb-1 w-full text-gray-900 text-xl mb-2 hover:outline-none"
+          className="mb-2 block w-full px-2.5 pt-4 pb-1 text-xl text-gray-900 hover:outline-none"
           placeholder="What's happening?"
         ></textarea>
         <div className="flex items-center justify-between">
-          <div className="flex h-10 gap-4 items-center">
+          <div className="flex h-10 items-center gap-4">
             <button onClick={onAttachImageClick}>
               <svg
                 viewBox="0 0 24 24"

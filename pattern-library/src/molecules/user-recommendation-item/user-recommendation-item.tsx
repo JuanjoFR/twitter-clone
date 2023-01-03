@@ -17,15 +17,15 @@ function UserRecommendationItem({
 }: Props) {
   return (
     <div
-      className="flex justify-between px-4 py-3 bg-[#F7F9F9] hover:bg-black hover:bg-opacity-[0.07] cursor-pointer"
+      className="flex cursor-pointer justify-between bg-[#F7F9F9] px-4 py-3 hover:bg-black hover:bg-opacity-[0.07]"
       onClick={onUserClick}
     >
-      <div className="flex flex-shrink-0 items-center justify-center mr-4">
-        <img className="w-12 h-12 rounded-md" src={image} alt="User" />
+      <div className="mr-4 flex flex-shrink-0 items-center justify-center">
+        <img className="h-12 w-12 rounded-md" src={image} alt="User" />
       </div>
-      <div className="flex flex-col flex-1 justify-center mr-4 overflow-hidden">
-        <span className="font-bold text-base text-[#0F1419]">{fullName}</span>
-        <span className="font-normal text-sm text-[#536471]">{nickName}</span>
+      <div className="mr-4 flex flex-1 flex-col justify-center overflow-hidden">
+        <span className="text-base font-bold text-[#0F1419]">{fullName}</span>
+        <span className="text-sm font-normal text-[#536471]">{nickName}</span>
       </div>
       <div className="flex items-center justify-center">
         <Button

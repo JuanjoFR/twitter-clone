@@ -45,18 +45,18 @@ function Tweet({
       <div className="ml-5">
         <a href={user.url} onClick={onUserClick}>
           <img
-            className="w-12 h-12 rounded-full mr-4"
+            className="mr-4 h-12 w-12 rounded-full"
             alt="Profile"
             src={user.image}
           />
         </a>
       </div>
-      <div className="flex flex-col flex-1 mr-5">
+      <div className="mr-5 flex flex-1 flex-col">
         <div className="flex items-center justify-between text-base">
           <div>
             <a
               href={user.url}
-              className="font-bold mr-2 text-[#0F1419]"
+              className="mr-2 font-bold text-[#0F1419]"
               onClick={onUserClick}
             >
               {user.fullName}
@@ -74,33 +74,33 @@ function Tweet({
             </a>
           </div>
           <button onClick={onMoreClick}>
-            <EllipsisHorizontalIcon className="w-5 h-5" color="#0F1419" />
+            <EllipsisHorizontalIcon className="h-5 w-5" color="#0F1419" />
           </button>
         </div>
         <div
-          className="mb-3 text-[#0F1419] cursor-pointer"
+          className="mb-3 cursor-pointer text-[#0F1419]"
           onClick={onTweetClick}
         >
           {body}
         </div>
-        <div className="flex justify-between text-[#536471] text-sm">
+        <div className="flex justify-between text-sm text-[#536471]">
           <button className="flex items-center" onClick={onAnswersClick}>
-            <ChatBubbleOvalLeftIcon className="w-5 h-5 mr-3" color="#536471" />
+            <ChatBubbleOvalLeftIcon className="mr-3 h-5 w-5" color="#536471" />
             <span>{meta.answers}</span>
           </button>
           <button className="flex items-center" onClick={onRetweetsClick}>
             <ArrowPathRoundedSquareIcon
-              className="w-5 h-5 mr-3"
+              className="mr-3 h-5 w-5"
               color="#536471"
             />
             <span>{meta.retweets}</span>
           </button>
           <button className="flex items-center" onClick={onLikesClick}>
-            <HeartIcon className="w-5 h-5 mr-3" color="#536471" />
+            <HeartIcon className="mr-3 h-5 w-5" color="#536471" />
             <span>{meta.likes}</span>
           </button>
           <button className="flex items-center" onClick={onShareClick}>
-            <ArrowUpTrayIcon className="w-5 h-5" color="#536471" />
+            <ArrowUpTrayIcon className="h-5 w-5" color="#536471" />
           </button>
         </div>
       </div>

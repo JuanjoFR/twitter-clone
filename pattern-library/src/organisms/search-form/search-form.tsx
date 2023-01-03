@@ -10,10 +10,10 @@ function SearchForm({ className, onSubmit }: Props) {
         Search Twitter
       </label>
       <div className="relative w-full">
-        <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+        <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
           <svg
             aria-hidden="true"
-            className="w-5 h-5 text-[#536471]"
+            className="h-5 w-5 text-[#536471]"
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
@@ -28,7 +28,7 @@ function SearchForm({ className, onSubmit }: Props) {
         <input
           type="text"
           id="simple-search"
-          className="bg-[#EFF3F4] focus:bg-white border border-[#EFF3F4] text-gray-900 text-sm rounded-full focus:border-[#1d9bf0] block w-full pl-10 p-2.5 placeholder:text-[#536471]"
+          className="block w-full rounded-full border border-[#EFF3F4] bg-[#EFF3F4] p-2.5 pl-10 text-sm text-gray-900 placeholder:text-[#536471] focus:border-[#1d9bf0] focus:bg-white"
           placeholder="Search Twitter"
         />
       </div>

@@ -36,40 +36,40 @@ function Footer({
   onMoreClick
 }: Props) {
   return (
-    <div className={`text-[#536471] text-sm ${className}`}>
-      <a href={tosUrl} className="hover:underline mr-3" onClick={onTosClick}>
+    <div className={`text-sm text-[#536471] ${className}`}>
+      <a href={tosUrl} className="mr-3 hover:underline" onClick={onTosClick}>
         Terms of Service
       </a>
       <a
         href={privacyUrl}
-        className="hover:underline mr-3"
+        className="mr-3 hover:underline"
         onClick={onPrivacyClick}
       >
         Privacy Policy
       </a>
       <a
         href={cookieUrl}
-        className="hover:underline mr-3"
+        className="mr-3 hover:underline"
         onClick={onCookieClick}
       >
         Cookie Policy
       </a>
       <a
         href={accesibilityUrl}
-        className="hover:underline mr-3"
+        className="mr-3 hover:underline"
         onClick={onAccesibilityClick}
       >
         Accesibility
       </a>
-      <a href={adsUrl} className="hover:underline mr-3" onClick={onAdsClick}>
+      <a href={adsUrl} className="mr-3 hover:underline" onClick={onAdsClick}>
         Ads info
       </a>
       <div
-        className="flex-grow-0 hover:underline mr-3 inline cursor-pointer"
+        className="mr-3 inline flex-grow-0 cursor-pointer hover:underline"
         onClick={onMoreClick}
       >
         <span className="mr-1">More</span>
-        <EllipsisHorizontalIcon className="w-4 h-4 inline" color="#536471" />
+        <EllipsisHorizontalIcon className="inline h-4 w-4" color="#536471" />
       </div>
       <span>{`© ${new Date().getFullYear()} Twitter, Inc.`}</span>
     </div>

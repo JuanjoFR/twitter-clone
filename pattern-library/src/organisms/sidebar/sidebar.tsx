@@ -82,14 +82,14 @@ function SidebarLink({
 }: SidebarLinkProps) {
   return (
     <a
-      className="flex items-center justify-center w-[52px] h-[52px] xl:w-fit xl:px-4 rounded-full text-[#0F1419] hover:bg-sidebar-hover"
+      className="flex h-[52px] w-[52px] items-center justify-center rounded-full text-[#0F1419] hover:bg-sidebar-hover xl:w-fit xl:px-4"
       href={url}
       onClick={onClick}
     >
       {active ? (
-        <ActiveIcon className="w-[24px] h-[24px] xl:mr-2" color="#0F1419" />
+        <ActiveIcon className="h-[24px] w-[24px] xl:mr-2" color="#0F1419" />
       ) : (
-        <Icon className="w-[24px] h-[24px] xl:mr-2" color="#0F1419" />
+        <Icon className="h-[24px] w-[24px] xl:mr-2" color="#0F1419" />
       )}
       <span className="hidden xl:inline">{text}</span>
     </a>
@@ -118,18 +118,18 @@ function Sidebar({
   onTweetClick
 }: SidebarProps) {
   return (
-    <div className="fixed hidden sm:flex flex-col w-16 xl:w-60 justify-between items-center xl:items-start min-h-screen overflow-x-hidden overflow-y-scroll">
+    <div className="fixed hidden min-h-screen w-16 flex-col items-center justify-between overflow-x-hidden overflow-y-scroll sm:flex xl:w-60 xl:items-start">
       <div className="w-full">
-        <div className="flex justify-center xl:justify-start mb-1 xl:pr-8">
+        <div className="mb-1 flex justify-center xl:justify-start xl:pr-8">
           <a
-            className="w-[52px] h-[52px] rounded-full flex items-center justify-center hover:bg-main-hover"
+            className="flex h-[52px] w-[52px] items-center justify-center rounded-full hover:bg-main-hover"
             href={logoUrl}
             onClick={onLogoClick}
           >
             <svg
               viewBox="0 0 24 24"
               aria-hidden="true"
-              className="w-[24px] h-[24px] fill-[#1d9bf0]"
+              className="h-[24px] w-[24px] fill-[#1d9bf0]"
             >
               <g>
                 <path d="M23.643 4.937c-.835.37-1.732.62-2.675.733.962-.576 1.7-1.49 2.048-2.578-.9.534-1.897.922-2.958 1.13-.85-.904-2.06-1.47-3.4-1.47-2.572 0-4.658 2.086-4.658 4.66 0 .364.042.718.12 1.06-3.873-.195-7.304-2.05-9.602-4.868-.4.69-.63 1.49-.63 2.342 0 1.616.823 3.043 2.072 3.878-.764-.025-1.482-.234-2.11-.583v.06c0 2.257 1.605 4.14 3.737 4.568-.392.106-.803.162-1.227.162-.3 0-.593-.028-.877-.082.593 1.85 2.313 3.198 4.352 3.234-1.595 1.25-3.604 1.995-5.786 1.995-.376 0-.747-.022-1.112-.065 2.062 1.323 4.51 2.093 7.14 2.093 8.57 0 13.255-7.098 13.255-13.254 0-.2-.005-.402-.014-.602.91-.658 1.7-1.477 2.323-2.41z"></path>
@@ -139,7 +139,7 @@ function Sidebar({
         </div>
         <nav className="xl:pr-8">
           <ol>
-            <li className="flex justify-center xl:justify-start mb-1">
+            <li className="mb-1 flex justify-center xl:justify-start">
               <SidebarLink
                 id="home"
                 Icon={HomeIconOutline}
@@ -150,7 +150,7 @@ function Sidebar({
                 onClick={onHomeClick}
               />
             </li>
-            <li className="flex justify-center xl:justify-start mb-1">
+            <li className="mb-1 flex justify-center xl:justify-start">
               <SidebarLink
                 id="explore"
                 Icon={HashtagIconOutline}
@@ -160,7 +160,7 @@ function Sidebar({
                 onClick={onExploreClick}
               />
             </li>
-            <li className="flex justify-center xl:justify-start mb-1">
+            <li className="mb-1 flex justify-center xl:justify-start">
               <SidebarLink
                 id="notifications"
                 Icon={BellIconOutline}
@@ -170,7 +170,7 @@ function Sidebar({
                 onClick={onNotificationsClick}
               />
             </li>
-            <li className="flex justify-center xl:justify-start mb-1">
+            <li className="mb-1 flex justify-center xl:justify-start">
               <SidebarLink
                 id="messages"
                 Icon={EnvelopeIconOutline}
@@ -180,7 +180,7 @@ function Sidebar({
                 onClick={onMessagesClick}
               />
             </li>
-            <li className="flex justify-center xl:justify-start mb-1">
+            <li className="mb-1 flex justify-center xl:justify-start">
               <SidebarLink
                 id="bookmarks"
                 Icon={BookmarkIconOutline}
@@ -190,7 +190,7 @@ function Sidebar({
                 onClick={onBookmarksClick}
               />
             </li>
-            <li className="flex justify-center xl:justify-start mb-1">
+            <li className="mb-1 flex justify-center xl:justify-start">
               <SidebarLink
                 id="lists"
                 Icon={ListBulletIconOutline}
@@ -200,7 +200,7 @@ function Sidebar({
                 onClick={onListsClick}
               />
             </li>
-            <li className="flex justify-center xl:justify-start mb-1">
+            <li className="mb-1 flex justify-center xl:justify-start">
               <SidebarLink
                 id="profile"
                 Icon={UserIconOutline}
@@ -210,7 +210,7 @@ function Sidebar({
                 onClick={onProfileClick}
               />
             </li>
-            <li className="flex justify-center xl:justify-start mb-1">
+            <li className="mb-1 flex justify-center xl:justify-start">
               <SidebarLink
                 id="more"
                 Icon={EllipsisHorizontalCircleIconOutline}
@@ -221,14 +221,14 @@ function Sidebar({
             </li>
           </ol>
         </nav>
-        <div className="flex justify-center xl:justify-start mb-1 xl:pr-8">
+        <div className="mb-1 flex justify-center xl:justify-start xl:pr-8">
           <a
-            className="w-[52px] h-[52px] xl:w-full xl:px-4 rounded-full flex items-center justify-center bg-[#1d9bf0] hover:bg-[#1A8CD8]"
+            className="flex h-[52px] w-[52px] items-center justify-center rounded-full bg-[#1d9bf0] hover:bg-[#1A8CD8] xl:w-full xl:px-4"
             href={tweetUrl}
             onClick={onTweetClick}
           >
             <svg
-              className="w-[24px] h-[24px] fill-white xl:hidden"
+              className="h-[24px] w-[24px] fill-white xl:hidden"
               viewBox="0 0 24 24"
               aria-hidden="true"
             >
@@ -236,28 +236,28 @@ function Sidebar({
                 <path d="M23 3c-6.62-.1-10.38 2.421-13.05 6.03C7.29 12.61 6 17.331 6 22h2c0-1.007.07-2.012.19-3H12c4.1 0 7.48-3.082 7.94-7.054C22.79 10.147 23.17 6.359 23 3zm-7 8h-1.5v2H16c.63-.016 1.2-.08 1.72-.188C16.95 15.24 14.68 17 12 17H8.55c.57-2.512 1.57-4.851 3-6.78 2.16-2.912 5.29-4.911 9.45-5.187C20.95 8.079 19.9 11 16 11zM4 9V6H1V4h3V1h2v3h3v2H6v3H4z"></path>
               </g>
             </svg>
-            <span className="hidden xl:inline text-white">Tweet</span>
+            <span className="hidden text-white xl:inline">Tweet</span>
           </a>
         </div>
       </div>
       <div className="xl:w-full">
         <a
-          className="w-16 h-16 xl:w-auto rounded-full hover:bg-sidebar-hover flex items-center justify-center"
+          className="flex h-16 w-16 items-center justify-center rounded-full hover:bg-sidebar-hover xl:w-auto"
           href={profileUrl}
           onClick={onProfileClick}
         >
-          <div className="flex xl:px-4 items-center justify-center w-full">
+          <div className="flex w-full items-center justify-center xl:px-4">
             <img
-              className="w-[40px] h-[40px] rounded-full xl:mr-2"
+              className="h-[40px] w-[40px] rounded-full xl:mr-2"
               alt="Profile"
               src="https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/417.jpg"
             />
-            <div className="hidden xl:flex flex-col flex-1 mr-2">
+            <div className="mr-2 hidden flex-1 flex-col xl:flex">
               <p className="text-[#0F1419]">John Doe</p>
               <p className="text-[#536471]">@johndoe</p>
             </div>
             <EllipsisHorizontalIcon
-              className="hidden xl:flex w-[24px] h-[24px] xl:mr-2"
+              className="hidden h-[24px] w-[24px] xl:mr-2 xl:flex"
               color="#0F1419"
             />
           </div>

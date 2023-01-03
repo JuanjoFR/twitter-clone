@@ -17,12 +17,12 @@ interface Props {
 function Main({ sidebar, content, widgets }: Props) {
   return (
     <div className="min-h-screen">
-      <div className="flex mx-auto max-w-7xl">
+      <div className="mx-auto flex max-w-7xl">
         {sidebar}
-        <div className="flex-1 sm:ml-16 xl:ml-64 min-h-screen sm:border-x border-[#EFF3F4]">
+        <div className="min-h-screen flex-1 border-[#EFF3F4] sm:ml-16 sm:border-x xl:ml-64">
           {content}
         </div>
-        <div className="hidden lg:flex w-72 xl:w-96 min-h-screen px-5">
+        <div className="hidden min-h-screen w-72 px-5 lg:flex xl:w-96">
           {widgets}
         </div>
       </div>

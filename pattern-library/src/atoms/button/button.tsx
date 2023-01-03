@@ -31,7 +31,7 @@ function Button({
   return (
     <button
       className={`
-        text-white font-bold px-4 py-2 rounded-full
+        rounded-full px-4 py-2 font-bold text-white
         ${colorStyle[color]}
         ${sizeStyle[size]}
         ${disabled ? "opacity-50" : ""}

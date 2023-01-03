@@ -15,21 +15,21 @@ function HotTopicItem({
 }: Props) {
   return (
     <div
-      className="flex justify-between px-4 py-3 bg-[#F7F9F9] hover:bg-black hover:bg-opacity-[0.07] cursor-pointer"
+      className="flex cursor-pointer justify-between bg-[#F7F9F9] px-4 py-3 hover:bg-black hover:bg-opacity-[0.07]"
       onClick={onTopicClick}
     >
-      <div className="flex flex-col flex-1">
-        <span className="font-normal text-sm text-[#536471]">{`Trending in ${country}`}</span>
-        <span className="font-bold text-base text-[#0F1419]">{body}</span>
+      <div className="flex flex-1 flex-col">
+        <span className="text-sm font-normal text-[#536471]">{`Trending in ${country}`}</span>
+        <span className="text-base font-bold text-[#0F1419]">{body}</span>
         {tweets ? (
-          <span className="font-normal text-sm text-[#536471]">{`${tweets} Tweets`}</span>
+          <span className="text-sm font-normal text-[#536471]">{`${tweets} Tweets`}</span>
         ) : undefined}
       </div>
       <button
-        className="flex w-8 h-8 rounded-full items-center justify-center hover:bg-[#1d9bf0] hover:bg-opacity-10"
+        className="flex h-8 w-8 items-center justify-center rounded-full hover:bg-[#1d9bf0] hover:bg-opacity-10"
         onClick={onMoreClick}
       >
-        <EllipsisHorizontalIcon className="w-5 h-5" color="#536471" />
+        <EllipsisHorizontalIcon className="h-5 w-5" color="#536471" />
       </button>
     </div>
   )
