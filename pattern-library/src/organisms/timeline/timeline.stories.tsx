@@ -1,6 +1,6 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react"
-import { action } from "@storybook/addon-actions"
 import Timeline from "./timeline"
+import { action } from "@storybook/addon-actions"
+import { ComponentStory, ComponentMeta } from "@storybook/react"
 import React from "react"
 
 export default {

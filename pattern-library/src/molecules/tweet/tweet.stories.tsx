@@ -1,6 +1,6 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react"
-import { action } from "@storybook/addon-actions"
 import Tweet from "./tweet"
+import { action } from "@storybook/addon-actions"
+import { ComponentStory, ComponentMeta } from "@storybook/react"
 import React from "react"
 
 export default {

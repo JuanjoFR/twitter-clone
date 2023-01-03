@@ -1,6 +1,6 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react"
 import Footer from "./footer"
 import { action } from "@storybook/addon-actions"
+import { ComponentStory, ComponentMeta } from "@storybook/react"
 
 export default {
   title: "Components/Footer",

@@ -1,6 +1,6 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react"
 import UsersRecommendations from "./users-recommendations"
 import { action } from "@storybook/addon-actions"
+import { ComponentStory, ComponentMeta } from "@storybook/react"
 
 export default {
   title: "Components/Users Recommendations",

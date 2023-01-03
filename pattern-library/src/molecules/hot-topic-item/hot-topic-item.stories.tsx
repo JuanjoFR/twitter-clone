@@ -1,6 +1,6 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react"
 import HotTopicItem from "./hot-topic-item"
 import { action } from "@storybook/addon-actions"
+import { ComponentStory, ComponentMeta } from "@storybook/react"
 
 export default {
   title: "Components/Hot Topic Item",

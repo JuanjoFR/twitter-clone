@@ -1,14 +1,4 @@
 import {
-  HomeIcon as HomeIconSolid,
-  HashtagIcon as HashtagIconSolid,
-  BellIcon as BellIconSolid,
-  EnvelopeIcon as EnvelopeIconSolid,
-  BookmarkIcon as BookmarkIconSolid,
-  ListBulletIcon as ListBulletIconSolid,
-  UserIcon as UserIconSolid,
-  EllipsisHorizontalCircleIcon as EllipsisHorizontalCircleIconSolid
-} from "@heroicons/react/24/solid"
-import {
   HomeIcon as HomeIconOutline,
   HashtagIcon as HashtagIconOutline,
   BellIcon as BellIconOutline,
@@ -19,6 +9,16 @@ import {
   EllipsisHorizontalCircleIcon as EllipsisHorizontalCircleIconOutline,
   EllipsisHorizontalIcon
 } from "@heroicons/react/24/outline"
+import {
+  HomeIcon as HomeIconSolid,
+  HashtagIcon as HashtagIconSolid,
+  BellIcon as BellIconSolid,
+  EnvelopeIcon as EnvelopeIconSolid,
+  BookmarkIcon as BookmarkIconSolid,
+  ListBulletIcon as ListBulletIconSolid,
+  UserIcon as UserIconSolid,
+  EllipsisHorizontalCircleIcon as EllipsisHorizontalCircleIconSolid
+} from "@heroicons/react/24/solid"
 
 type Icon = (
   props: React.SVGProps<SVGSVGElement> & {
