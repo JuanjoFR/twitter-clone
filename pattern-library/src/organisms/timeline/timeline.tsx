@@ -53,7 +53,7 @@ function Timeline({
   return (
     <React.Fragment>
       {data.map((item) => (
-        <React.Fragment>
+        <React.Fragment key={item.id}>
           <Tweet
             key={item.id}
             {...item}
