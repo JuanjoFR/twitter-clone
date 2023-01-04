@@ -4,6 +4,9 @@
   "private": true,
   "main": "./dist/cjs/index.js",
   "types": "./dist/cjs/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "@faker-js/faker": "^7.6.0",
     "@heroicons/react": "^2.0.13",

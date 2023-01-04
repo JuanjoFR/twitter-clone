@@ -1,2 +1,3 @@
 /node_modules
 /pattern-library/dist
+.DS_Store

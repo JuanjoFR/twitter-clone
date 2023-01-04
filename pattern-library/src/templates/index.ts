@@ -1,3 +1,3 @@
-import Main from "./main/main"
+import MainTemplate from "./main/main"
 
-export { Main }
+export { MainTemplate }
