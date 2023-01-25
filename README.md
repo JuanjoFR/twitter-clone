@@ -9,10 +9,14 @@ Project created to check what is the best way to integrate a pattern library wit
 The pattern library project is a group of reusable components that you can interact with in isolation thanks to [Storybook](https://storybook.js.org/).\
 All components are organized using the [atomic design](https://bradfrost.com/blog/post/atomic-web-design/) methodology and [Tailwind CSS](https://tailwindcss.com/) is used for styling.
 
+[twitter-clone-storybook-720.webm](https://user-images.githubusercontent.com/978229/214545983-d45104ec-8019-44b5-9fa8-dc898f7ecf4c.webm)
+
 ### Website project
 
 The website project uses the [NextJS](https://nextjs.org/) framework and integrates the components that exist in the pattern library.\
 The data is included statically to facilitate this demo.
+
+[twitter-clone-website-720.webm](https://user-images.githubusercontent.com/978229/214546173-a49753f2-be53-444d-9e5c-77329fba41d7.webm)
 
 ## Installation
 
