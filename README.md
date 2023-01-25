@@ -1,17 +1,17 @@
 # Twitter Clone
 
-Project created to check what is the best way to integrate a pattern library with a website created in independent modules.
+Project created to check what is the best way to integrate a pattern library with a website created in [independent modules](https://docs.npmjs.com/cli/v7/using-npm/workspaces).
 
 ## Basic Overview
 
 ### Pattern Library project
 
-The pattern library project is a group of reusable components that you can interact with in isolation thanks to Storybook.\
-All components are organized using the atomic design methodology and Tailwind CSS is used for styling.
+The pattern library project is a group of reusable components that you can interact with in isolation thanks to [Storybook](https://storybook.js.org/).\
+All components are organized using the [atomic design](https://bradfrost.com/blog/post/atomic-web-design/) methodology and [Tailwind CSS](https://tailwindcss.com/) is used for styling.
 
 ### Website project
 
-The website project uses the NextJS framework and integrates the components that exist in the pattern library.\
+The website project uses the [NextJS](https://nextjs.org/) framework and integrates the components that exist in the pattern library.\
 The data is included statically to facilitate this demo.
 
 ## Installation
